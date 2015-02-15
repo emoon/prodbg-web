@@ -127,7 +127,7 @@ The Github setup looks like this:
 ![]({{ site.url }}/images/github_webhook.png)
 
 
-Default port 9001 is used so depending on your network you may need to open this. A good thing on the Github side is that you can redelivery the data by pressing here: 
+Default port 9001 is used so depending on your network you may need to open this. A good thing on the Github side is that you can redeliver the data by pressing here: 
 
 ![]({{ site.url }}/images/github_send_webhook.png)
 
