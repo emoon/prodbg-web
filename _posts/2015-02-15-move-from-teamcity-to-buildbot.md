@@ -84,7 +84,7 @@ You should now be able to start a build of 'PyFlakes' (which is the default proj
 
 Goto the build page and you should see something like this;
 
-![](buildbot_web_2.png)
+![]({{ site.url }}/images/bbuildbot_web_2.png)
 
 If that is all working then great! Now we can actually start getting something done!
 
@@ -124,12 +124,12 @@ The Github setup looks like this:
 2. Under "Options" select "Webhooks & Services" 
 3. Press "Add Webhook" and you should see something like this
 
-![](github_webhook.png)
+![]({{ site.url }}/images/bgithub_webhook.png)
 
 
 Default port 9001 is used so depending on your network you may need to open this. A good thing on the Github side is that you can redelivery the data by pressing here: 
 
-![](github_send_webhook.png)
+![](g{{ site.url }}/images/bithub_send_webhook.png)
 
 This allows you to 'change' the code without actually changing it which is really useful for debugging and testing to make sure it works correct.
 
