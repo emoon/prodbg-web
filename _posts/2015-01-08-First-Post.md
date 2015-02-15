@@ -3,4 +3,4 @@ layout: post
 title: First post 
 ---
 
-Not much to see here yet. I will update with info soon.
+Currently not that much going on here. I indent to update with some more info and posts and developments of [ProDBG](https://github.com/emoon/ProDBG) as I go along.
