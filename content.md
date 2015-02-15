@@ -2,5 +2,7 @@
 layout: default
 ---
 
-{% markdown content.md %}
+Testing
+
+* Test
 

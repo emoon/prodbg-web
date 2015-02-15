@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ProDBG</title>
+    <description>Debugging the way it&#39;s meant to be done</description>
+    <link>http://emoon.github.io</link>
+    <atom:link href="http://emoon.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>First post</title>
+        <description>&lt;p&gt;Not much to see here yet. I will update with info soon.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 08 Jan 2005 00:00:00 +0100</pubDate>
+        <link>http://emoon.github.io/First-Post/</link>
+        <guid isPermaLink="true">http://emoon.github.io/First-Post/</guid>
+      </item>
+    
+  </channel>
+</rss>
