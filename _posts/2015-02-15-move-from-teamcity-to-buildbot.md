@@ -100,13 +100,13 @@ When reading the documentation for Buildbot it's not really clear (at least to m
 
 First in coordinator/master.cfg change the following code
 
-```Python
+```python
 change['change_source'].append(changes.GitPoller(...))
 ```
 
 to
 
-```Python
+```python
 change['change_source'].append(changes.PBChangeSource())
 ```
 
@@ -141,7 +141,7 @@ Something that I find essential next to having continues builds running is to re
 
 When doing this setup all the way here everything was pretty straightforward but at this point it started to become painful. I ran into several issues which can be found here: [http://trac.buildbot.net/ticket/3182](http://trac.buildbot.net/ticket/3182) Thanks to the fast work of the "Buildboters" two out of the three issues was fixed fast and I was able to send mail to a fixed address. This is done by adding this to the coordinator/master.cfg
 
-```Python
+```python
 mn = status.MailNotifier(fromaddr=“name@gmail.com",
                          extraRecipients=["malinglist@gmail.com"],
                          useTls=True,
@@ -154,13 +154,13 @@ c['status'].append(mn)
 
 This currently sends mails to one mail address and while you can have everyone working on a project joining a mailinglist this isn't really convenient and it can potentially send lots of mails which many don't care about. Better is to send the person that actually submitted in case the build would fail. Buildbot supports that you can set:
 
-```Python
+```python
 sendToInterestedUsers = True
 ```
 
 The problem here is that Builbot would now throw an exception inside the mail code. I created another [ticket](http://trac.buildbot.net/ticket/3194) for this but nothing really happend so after a few days I decided to track down the issue myself. I have a [Pull Request](https://github.com/buildbot/buildbot/pull/1542) for the fix here which of current writing still is in review but I use the code locally and it solves my problem. My current mail setup looks like this:
 
-```Python
+```python
 class GitEmailLookup(ComparableMixin):
     implements(IEmailLookup)
 
