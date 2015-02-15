@@ -183,5 +183,6 @@ Conclusions
 
 So to conclude: Running on Buildbot (Github version) is not for the weak hearted. There will be issues but except to mailing it works quite well. I primary want to use the latest version because of the improved UI and the underlying architecture improvements that has been made. I must say I really like the way Buildbot works. It's not as simple to setup as TeamCity for example but it's very powerful and allows you much more control over everything but as always it comes at a cost meaning it takes more time to do the setup. For me it will be worth the effort as I want to have more complex use cases (like deploying builds on remote targets and running them there while compiled somewhere else) I'm sure this is possible in TeamCity as well but Buildbot gives you control over the whole stack which is very useful.
 
+I will likely do a second post on this topic when I have done even more work on my setup because currently it's quite basic.
 
 
