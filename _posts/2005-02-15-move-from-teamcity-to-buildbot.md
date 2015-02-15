@@ -1,11 +1,7 @@
 ---
 layout: post
-title: First post 
+title: Switching from TeamCity to Buildbot
 ---
-
-
-Switching from TeamCity to Buildbot
-===================================
 
 I have been using [TeamCity](http://www.jetbrains.com/teamcity) for [ProDBG](http://prodbg.com) now for a while and it has served me well but I ran into the limit of 3 agents on the free version. While I certanly can affort to pay for a few extras it just doesn't feel right to do that and if I want to add more machines the costs will rise even more and I don't feel I want to be restricted to the amount of machines I can have.
 
@@ -82,7 +78,7 @@ http://localhost:8020
 
 Notice that the Buildbot docs (as of currently writing) say port 8010 which is incorrect and the screenshots on the homepage is incorrect as well. It should look something like this when started:
 
-![](buildbot_web.png)
+![]({{ site.url }}/images/buildbot_web.png)
 
 You should now be able to start a build of 'PyFlakes' (which is the default project that is being used when creating the *Coordinator*)
 
