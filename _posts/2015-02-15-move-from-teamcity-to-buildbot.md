@@ -129,7 +129,7 @@ The Github setup looks like this:
 
 Default port 9001 is used so depending on your network you may need to open this. A good thing on the Github side is that you can redelivery the data by pressing here: 
 
-![]({{ site.url }}/images/bithub_send_webhook.png)
+![]({{ site.url }}/images/github_send_webhook.png)
 
 This allows you to 'change' the code without actually changing it which is really useful for debugging and testing to make sure it works correct.
 
