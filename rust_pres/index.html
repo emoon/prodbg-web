@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Rust</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-background="rust_logo.png">
+					<h1>Rust</h1>
+					<p>
+						Presentation for the Frostbite Rendering Team (+ Friends!) by Daniel Collin / <a href="http://twitter.com/daniel_collin">@daniel_collin</a>
+					</p>
+				</section>
+				<section>
+					<h2>Thanks!</h2>
+					<p>To Alex Crichton (of Mozilla Research) for allowing me to use some of his slides in this presentation.</p>
+				</section>
+				<section>
+					<h2>Agenda</h2>
+					<ul>
+						<li>Me and programming languages</li>
+						<li>What is Rust?</li>
+						<li>Ownership and Borrwing</li>
+						<li>Misc</li>
+						<li>Unsafe</li>
+						<li>Thoughts</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<p>Me and programming languages.</p>
+					</section>
+					<section>
+						<p>Aiming to try out 3 new programming languages every year.</p>
+					</section>
+					<section>
+						<p>See beyond the usual box.</p>
+					</section>
+					<section>
+						<p>Ideas, concepts can usually be applied in your "daily" language as well.</p>
+					</section>
+					<section>
+						<p>Spend more time with the ones I find most interesting.</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>What is Rust?</h2>
+						<pre class='rust' style='margin-top:80px'><code data-trim style="font-size:125%;line-height:1.3em" class='rust'>
+fn main() {
+  println!("hello, {}", "world!");
+}
+        </code></pre>
+					</section>
+					<section>
+						<p>Rust grew out of a personal project by Mozilla employee Graydon Hoare.</p>
+					</section>
+					<section>
+						<p>Mozilla sponsored starting in 2009. Rust itself is community driven under MIT licence.</p>
+					</section>
+					<section>
+						<h2>Why Rust?</h2>
+
+						<table style='margin:auto'>
+						<tr>
+							<td style=''>C/C++</td>
+							<td style='text-align:center'></td>
+							<td style='text-align:center'>Java/.NET</td>
+							<td style='text-align:right'>Python</td>
+						</tr>
+						<tr>
+							<td colspan='4'>
+							<div style='background:linear-gradient(to right, #d00, #00d);
+									width:800px; height: 20px;margin:auto;
+									border-radius:5px;'/>
+							</td>
+						</tr>
+						<tr>
+							<td colspan='2' style='font-size:80%'>
+							More control,<br/>less safety
+							</td>
+							<td colspan='2' style='text-align:right;font-size:80%'>
+							Less control,<br/>more safety
+							</td>
+						</tr>
+						</table>
+
+						<div style='background:green;margin:auto;width:400px;margin-top:50px;
+									border-radius:5px;padding:5px;'>
+						Rust
+						<p style='font-size:80%'>
+							More control, more safety
+						</p>
+						</div>
+					</section>
+				     <section>
+						<h2>Systems Programming Language</h2>
+						<ul>
+						<li>Fine grained control over allocations.</li>
+						<li>No required garbage collector.</li>
+						<li>Minimal runtime.</li>
+						<li>Statically typed.</li>
+						</ul>
+					</section>
+					 <section>
+						<h2>Runs fast</h2>
+						<ul>
+						<li>Compiles to an executable binary.</li>
+						<li>LLVM backend (Same backend as Clang for Mac/iOS/PS4).</li>
+						<li>LLVM's suite of optimizations.</li>
+						<li>Competitive with C/C++.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Prevents almost all crashes</h2>
+						<ul>
+						<li><em>Safe by default</em>.</li>
+						<li>Sophisticated type system and analysis.</li>
+						<li>No segfaults.</li>
+						<li>No null pointers.</li>
+						<li>No dangling pointers.</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Eliminates data races</h2>
+						<ul>
+						<li><em>Ownership</em> guarantees.</li>
+						<li><em>Borrowing</em> prevents dangling pointers.</li>
+						<li>Strong, safe abstractions.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Ownership and borrowing</h2>
+							<p>Type system enforces <b>ownership and borrowing</b></p>
+							<ol>
+								<li>All resources have a clear owner.</li>
+								<li>Others can borrow from the owner.</li>
+								<li>Owner cannot free or mutate the resource while it is borrowed.</li>
+							</ol>
+						</section>
+
+						<section>
+							<h2>Ownership</h2>
+
+							<pre><code style='font-size:130%;line-height:1.3em;' data-trim>
+int main() {
+    int* data = malloc(sizeof(int));
+    *data = 3;
+    foo(slot);
+    foo(slot); // use after free!
+}
+
+void foo(int* data) {
+    printf("The number was: %d\n", *data);
+    free(data);
+}
+							</code></pre>
+							<pre><code style='font-size:90%;line-height:1.3em;' data-trim>
+a.out(62940,0x7fff7b9ea310) malloc: *** error for object 0x7fecb0c03b10:
+pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+zsh: abort      ./a.out
+					</code></pre>
+					</section>
+					<section>
+					    <h2>Ownership</h2>
+
+        <pre><code style='font-size:130%;line-height:1.3em;' data-trim class='rust'>
+fn main() {
+    let data = Box::new(3u32);
+    foo(data); // moves the value!
+    foo(data); // error: use of moved value
+}
+
+fn foo(slot: Box&lt;u32&gt;) {
+    println!("The number was: {}", slot);
+}
+        </code></pre>
+		<pre><code style='font-size:90%;line-height:1.3em;' data-trim>
+test.rs:6:9: 6:13 error: use of moved value: `data` [E0382]
+test.rs:6     foo(data); // error: use of moved value
+                 ^~~~
+test.rs:5:9: 5:13 note: `data` moved here because it has type 'Box&lt;u32&gt;', 
+                         which is non-copyable
+test.rs:5     foo(data); // moves the value!
+                 ^~~~
+error: aborting due to previous error
+</code></pre>
+					</section>
+					<section>
+						<h2>Ownership</h2>
+
+			<pre><code style='font-size:125%;line-height:1.3em;' data-trim class='rust'>
+fn foo() -&gt; Box&lt;u32&gt; {
+    let three = Box::new(3u32);
+    return three; // transfer ownership
+}
+
+fn main() {
+    // acquire ownership of return value
+    let my_three = foo();
+}
+						</code></pre>
+					</section>
+				</section>
+				<!-- Borrowing sections -->
+				<section>
+					      <section>
+        <h2>Borrowing</h2>
+
+        <p>
+          Owned values can be <em>borrowed</em> in Rust to allow usage for a
+          certain period of time.
+        </p>
+
+        <pre><code class='rust' data-trim style='font-size:140%;line-height:1.3em'>
+// The `&amp;` sigil means "borrowed reference"
+fn foo(slot: &amp;Vec&lt;u32&gt;) { /* ... */ }
+
+fn main() {
+    let data = Vec::new();
+
+    // doesn't move!
+    foo(&amp;data);
+    foo(&amp;data);
+}
+        </pre></code>
+      </section>
+
+      <section>
+        <h2>Borrowing</h2>
+
+        <p>
+          Borrowed values are only valid for a particular <em>lifetime</em>
+        </p>
+
+        <pre class='rust'><code data-trim style='font-size:130%;line-height:1.3em'>
+let a: &amp;u32;
+{
+    let b = 3;
+    a = &amp;b; // error! `b` does not live long enough
+}
+        </pre></code>
+        <pre class='rust'><code data-trim style='font-size:140%;line-height:1.3em'>
+let a: &amp;u32;
+let b = 3;
+a = &amp;b; // ok, `b` has the same lifetime as `a`
+        </pre></code>
+      </section>
+
+      <section>
+        <h2>Borrowing</h2>
+
+        <p>
+          Borrowing prevents <em>moving</em>
+        </p>
+
+        <pre class='rust'><code data-trim style='font-size:140%;line-height:1.3em'>
+let a = Vec::new();
+let b = &amp;a;
+work_with(a); // error!
+        </pre></code>
+        <pre class='rust'><code data-trim style='font-size:140%;line-height:1.3em'>
+let a = Vec::new();
+{
+    let b = &amp;a;
+}
+work_with(a); // ok
+        </pre></code>
+      </section>
+
+      <section>
+        <h2>Borrowing</h2>
+
+        A mistake that happens in C/C++:
+        <pre><code class='rust' style='font-size:140%;line-height:1.3em;' data-trim>
+fn main() {
+    println!("Your number was: {}", *foo());
+}
+
+// Tries to return borrowed reference to `a`
+fn foo() -&gt; &amp;u32 {
+    let a = 3u32;
+    return &a;
+}
+        </code></pre>
+
+      </section>
+
+      <section>
+        <h2>Borrowing</h2>
+
+        <p>Borrows can be nested</p>
+        <pre><code style='font-size:140%;line-height:1.3em;' data-trim class='rust'>
+struct MyStruct { inner: u32 }
+
+fn get(s: &amp;MyStruct) -&gt; &amp;u32 {
+    &amp;s.inner
+}
+
+fn main() {
+    let s = MyStruct { inner: 3u32 };
+    let inner = get(&amp;s); // same lifetime as `s`
+}
+        </code></pre>
+
+      </section>
+
+      <section>
+        <h2>Borrowing</h2>
+
+        <p>Borrowed values can become owned values through <em>cloning</em></p>
+        <pre><code class='rust' style='font-size:140%;line-height:1.3em;' data-trim>
+fn clone_vector(v: &amp;Vec&lt;u32&gt;) -&gt; Vec&lt;u32&gt; {
+    v.clone()
+}
+        </code></pre>
+
+      </section>
+		<!-- End borrowing section -->
+    </section>
+    <section>
+			<!------------------------------------------------------------->
+      <section>
+        <h2>Memory Management</h2>
+        <p>
+          Rust has fine-grained memory management, but is automatically managed
+          once created.
+        </p>
+      </section>
+			<!------------------------------------------------------------->
+      <section>
+        <h2>Memory Management</h2>
+        <p>
+          Each variable has a <em>scope</em> it is valid for, and it is
+          automatically deallocated when it goes out of scope.
+        </p>
+
+        <pre><code style='font-size:140%;line-height:1.3em;' data-trim class='rust'>
+fn main() {
+    // main owns 'data'
+    let data = Box::new(4u32);
+    // The data goes out of scope, it is free'd
+}
+        </code></pre>
+      </section>
+			<!------------------------------------------------------------->
+      <section>
+        <h2>Memory Management</h2>
+				<p>Also possible to explicitly free data using <em>drop</em></p>
+
+        <pre><code style='font-size:140%;line-height:1.3em;' data-trim class='rust'>
+fn main() {
+    // main owns 'data'
+    let data = Box::new(4u32);
+    // Do something with data here..
+    // ...
+    // Now free data
+    drop(data);
+    // Compile error if we try to use data 
+    println!("Trying to use data {}", data);
+}
+        </code></pre>
+      </section>
+			<!------------------------------------------------------------->
+			<section>
+        <h2>Memory Management</h2>
+        <p>
+          Reference counting is another way of managing memory.
+        </p>
+
+        <pre><code style='font-size:115%;line-height:1.3em;' data-trim class='rust'>
+use std::rc::Rc;
+
+fn main() {
+    let data = Rc::new(3u32); // reference count of 1
+    {
+        let data2 = data.clone(); // reference count of 2
+        use_data(data2); // transfer ownership of `data2`
+    } // reference count of 1
+    use_data(data); // transfer ownership of `data`
+} // reference count of 0, memory deallocated
+
+fn use_data(data: Rc&lt;u32&gt;) {}
+        </code></pre>
+      </section>
+			</section>
+			<!-- End Memory section --> 
+			</section>
+			<!-- Mutability -->
+		<section>
+			<!------------------------------------------------------------->
+   		<section>
+        <h2>Mutability</h2>
+
+        <p>
+          Values are <em>immutable</em> by default in Rust, and must be tagged
+          as being <em>mutable</em>.
+        </p>
+
+        <pre class='rust'><code style='font-size:140%;line-height:1.3em;' data-trim>
+let a = 4;
+a = 5; // error!
+        </code></pre>
+        <pre class='rust'><code style='font-size:140%;line-height:1.3em;' data-trim>
+let mut a = 4;
+a = 5; // ok
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Mutability</h2>
+
+        <p>
+          Mutability is also a part of the type of a borrowed pointer.
+        </p>
+
+        <pre class='rust'><code style='font-size:140%;line-height:1.3em;' data-trim>
+fn inc(i: &amp;i32) {
+    *i += 1; // error!
+}
+        </code></pre>
+        <pre class='rust'><code style='font-size:140%;line-height:1.3em;' data-trim>
+fn inc(i: &amp;mut i32) {
+    *i += 1; // ok
+}
+        </code></pre>
+      </section>
+
+			<!------------------------------------------------------------->
+      <section>
+        <h2>Mutability</h2>
+
+        <p>
+          Borrowed pointers may coerce
+        </p>
+
+        <pre class='rust'><code style='font-size:140%;line-height:1.3em;' data-trim>
+let a = &amp;mut 1;
+let b: &amp;i32 = a; // ok
+let c: &amp;mut i32 = b; // error!
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Mutability</h2>
+
+        <p>
+          Values can be <em>frozen</em> by borrowing
+        </p>
+
+        <pre class='rust'><code style='font-size:140%;line-height:1.3em;' data-trim>
+let mut a = Vec::new();
+{
+    let b = &amp;a; // freezes `a`
+    a.push(1);  // error!
+}
+a.push(2); // ok
+        </pre></code>
+      </section>
+
+			<!------------------------------------------------------------->
+      <section>
+        <h2>Mutability</h2>
+
+        <p>
+          Mutability propagates deeply into owned types
+        </p>
+
+        <pre><code style='font-size:130%;line-height:1.3em;' data-trim class='rust'>
+struct A { b: B }
+struct B { c: i32 }
+fn main() {
+    let mut a = A { b: B { c: 2 } };
+    a.b.c = 3;
+    a.b = B { c: 4 };
+    a = A { b: B { c: 5 } };
+
+    let frozen = a;
+    frozen.b.c = 4; // error!
+}
+        </code></pre>
+      </section>
+    <! -- End Mutability section -->
+		</section>
+		<section>
+      <section>
+        <h2>Concurrency</h2>
+
+        <p>
+          Using ownership to prevent data races.
+        </p>
+      </section>
+
+      <section>
+        <h2>Concurrency</h2>
+
+        <p>
+          Parallelism is achieved at the granularity of an OS thread but it's also possible to use libraries like threadpool.
+        </p>
+
+        <pre clas='rust'><code style='font-size:140%;line-height:1.3em;' data-trim>
+// Spawn a child thread to be run in parallel
+spawn(move || {
+    expensive_computation();
+});
+
+other_expensive_computation();
+        </code></pre>
+      </section>
+				      <section>
+        <h2>Concurrency</h2>
+
+        <p>
+          Safety is achieve by requiring spawn to use 'move' closure to capture variables. 
+        </p>
+
+        <pre class='rust'><code style='font-size:140%;line-height:1.3em;' data-trim>
+use std::thread;
+
+fn main() {
+    let mut a = Vec::new();
+    thread::spawn(move || {
+        a.push("foo");
+    });
+    a.push("bar"); // error!
+}
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Concurrency</h2>
+
+        <p>
+          Threads can communicate with channels
+        </p>
+
+        <pre class='rust'><code style='font-size:140%;line-height:1.3em;' data-trim>
+let (tx, rx) = channel();
+
+spawn(move || {
+    tx.send(expensive_computation());
+});
+
+// Do some work in the meantime
+
+let answer = rx.recv();
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Concurrency</h2>
+
+        <p>
+          Tasks can also share memory
+        </p>
+
+        <pre><code data-trim class='rust'>
+use std::collections::HashMap;
+use std::sync::Arc;
+use std::thread;
+
+fn main() {
+    let mut map = HashMap::new();
+    map.insert("tomato", "red");
+    map.insert("celery", "green");
+    map.insert("carrot", "orange");
+
+    let arc1 = Arc::new(map);
+    let arc2 = arc1.clone();
+
+    spawn(move || println!("Celery is `{}`", arc1["celery"]));
+    spawn(move || println!("Carrots are `{}`", arc2["carrot"]));
+}
+        </code></pre>
+      </section>
+      <section>
+        <h2>Concurrency</h2>
+
+        <p>
+        	Using a Mutex it's possible to modify shared state 
+        </p>
+
+        <pre><code data-trim class='rust'>
+use std::sync::{Arc, Mutex};
+use std::thread;
+
+// Mutex is design so it be owner of a piece of data and
+// use borrowing to lend it to others 
+fn main() {
+    let data = Arc::new(Mutex::new(4u32));
+    for _ in 0..10 {
+       let thread_data = data.clone();
+       thread::spawn(move || {
+           let mut data = thread_data.lock().unwrap();
+           *data += 1;
+        });
+    }
+}
+     </code></pre>
+    </section>
+   </section>
+ <section>
+   <section>
+     <h2>Structs</h2>
+        <pre><code data-trim class='rust' style='font-size:150%;line-height:1.2em'>
+struct Point {
+    x: f32,
+    y: f32,
+}
+
+fn main() {
+    let p = Point { x: 1.0, y: 2.0 };
+}
+        </code></pre>
+   </section>
+	<!------------------------------------------------------------->
+   <section>
+     <h2>Match</h2>
+        <pre><code data-trim class='rust' style='font-size:105%;line-height:1.2em'>
+
+fn main() {
+  let number = 13;
+
+  println!("Tell me about {}", number);
+  match number {
+    // Match a single value
+    1 => println!("One!"),
+    // Match several values
+    2 | 3 | 5 | 7 | 11 => println!("This is a prime"),
+    // Match an inclusive range
+    13...17 => println!("A teen"),
+    // Handle the rest of cases
+    _ => println!("Ain't special"),
+  }
+}
+        </code></pre>
+   </section>
+	<!------------------------------------------------------------->
+   <section>
+     <h2>Enums</h2>
+        <pre><code data-trim class='rust' style='font-size:140%;line-height:1.2em'>
+enum Shape {
+    Circle,
+    Square
+}
+
+fn test(shape: Shape) {
+    match shape {
+        Circle => { /* ... */ }
+        Square => { /* ... */ }
+    }
+}
+        </code></pre>
+   </section>
+	<!------------------------------------------------------------->
+   <section>
+     <h2>Enums</h2>
+     <p> Enums can have data. This is compiled into a union + tag</p>
+        <pre><code data-trim class='rust' style='font-size:120%;line-height:1.2em'>
+enum Shape {
+    Circle(Point, f64),
+    Rectangle(Point, Point),
+}
+
+match shape {
+    Circle(center, radius) => {
+        draw_circle(center, radius)
+    }
+    Rectangle(ul, lr) => {
+        draw_rectangle(ul, lr)
+    }
+}
+        </code></pre>
+   </section>
+	<!------------------------------------------------------------->
+   <section>
+     <h2>Traits</h2>
+        <pre><code data-trim class='rust' style='font-size:140%;line-height:1.2em'>
+trait Hello {
+    fn hello(&self);
+}
+        </code></pre>
+   </section>
+	<!------------------------------------------------------------->
+   <section>
+     <h2>Traits - Impl</h2>
+        <pre><code data-trim class='rust' style='font-size:140%;line-height:1.2em'>
+impl Hello for Point {
+    fn hello(&self) {
+        println!("Hello!");
+    }
+}
+        </code></pre>
+   </section>
+	<!------------------------------------------------------------->
+   <section>
+     <h2>Traits - Impl</h2>
+     <p> Traits can also be applied on existing types</p>
+        <pre><code data-trim class='rust' style='font-size:140%;line-height:1.2em'>
+trait Hello {
+    fn hello(&self);
+}
+impl Hello for u32 {
+    fn hello(&self) {
+        println!("Hello!");
+    }
+}
+fn main() {
+    4u32.hello(); // Considered bad style!
+}
+        </code></pre>
+   </section>
+	<!------------------------------------------------------------->
+   <section>
+     <h2>Modules</h2>
+     <p> Rust has modules to split code in logical units</p>
+        <pre><code data-trim class='rust' style='font-size:115%;line-height:1.2em'>
+fn function() {
+    println!("Called 'function'");
+}
+
+mod my {
+    pub fn function() {
+        println!("Called 'my::function'");
+    }
+}
+
+fn main() {
+    function();
+    my::function();
+}
+        </code></pre>
+   </section>
+   </section>
+   <section>
+  <section>
+   <h2>Unsafe - Break the rules</h2>
+		<ul>
+			<li>Possible to skip some compiler checks.</li>
+			<li>Used to build safe code around unsafe blocks.</li>
+			<li>Can audit only unsafe blocks for issues.</li>
+			<li>FFI (Foreign Function Interface) is always unsafe.</li> 
+		</ul>
+  </section>
+	<!------------------------------------------------------------->
+   <section>
+     <h2>Unsafe</h2>
+        <pre><code data-trim class='rust' style='font-size:140%;line-height:1.2em'>
+fn main() {
+    let a = 3;
+
+    // Turn off some compiler checks,
+    // "I know what I'm doing"
+    unsafe {
+        let b = &a as *const i32 as *mut i32;
+        *b = 4;
+    }
+
+    println!("{}", a); // prints 4
+}
+        </code></pre>
+   </section>
+	<!------------------------------------------------------------->
+   <section>
+    <h2>Transmuting</h2>
+    		<p>Transform one type to another</p>
+        <pre class='rust'><code data-trim style='font-size:130%;line-height:1.2em'>
+unsafe fn transmute&lt;T, U&gt;(t: T) -&gt; U {
+    /* ... */
+}
+        </code></pre>
+        <pre class='rust'><code data-trim style='font-size:130%;line-height:1.2em'>
+// Invalid promotion to a mutable pointer
+let a: &amp;int = &amp;3;
+let b: &amp;mut int = unsafe { transmute(a) };
+    </code></pre>
+  </section>
+	<!------------------------------------------------------------->
+   <section>
+    <h2>Inline assembly</h2>
+        <pre class='rust'><code data-trim style='font-size:120%;line-height:1.2em'>
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
+fn foo() {
+    unsafe {
+        asm!("nop");
+    }
+}
+    </code></pre>
+  </section>
+	<!------------------------------------------------------------->
+	<section>
+		<h2>FFI</h2>
+        <pre><code data-trim class='rust' style='font-size:120%;line-height:1.2em'>
+extern {
+    fn write(fd: i32, data: *const u8, len: u32) -&gt; i32;
+}
+
+fn main() {
+    let data = b"Hello, world!\n";
+
+    unsafe {
+        write(1, &amp;data[0], data.len() as u32);
+    }
+}
+		</code></pre>
+	</section>
+	<!------------------------------------------------------------->
+  <section>
+     <h2><em>Fast</em>&nbsp;&nbsp;FFI</h2>
+    <pre><code data-trim class='asm' style='font-size:130%;line-height:1.2em'>
+_ZN4main20h9abc3392beeae1c4saaE:
+	.cfi_startproc
+	leaq	byte_str2755(%rip), %rsi
+	movl	$1, %edi
+	movl	$14, %edx
+	jmp	write@PLT
+     </code></pre>
+  </section>
+ </section>
+ <section>
+	<!------------------------------------------------------------->
+	<section>
+	 <h2>Cargo</h2>
+		<ul>
+			<li>Cargo is Rusts package manager.</li>
+			<li>Makes it possible to download dependencies for a project.</li>
+			<li>Invokes <em>rustc</em> or other tools to build projects.</li>
+			<li>Uses <em>creates</em> for packaging up modules in a library.</li>
+			<li>Introduces conventions, making working with Rust projects easier.</li>
+		</ul>
+	</section>
+	<!------------------------------------------------------------->
+	<section>
+	 <h2>Cargo</h2>
+	 <p>Defining a <em>Cargo.toml</em> file for a project.</p>
+    <pre><code data-trim class='cargo' style='font-size:130%;line-height:1.2em'>
+[package]
+name = "hello_world"
+version = "0.1.0"
+authors = ["Your Name you@example.com"]
+
+[dependencies]
+regex = "0.1.41"
+     </code></pre>
+	</section>
+	<!------------------------------------------------------------->
+	<section>
+	 <h2>Cargo</h2>
+    <pre><code data-trim class='rust' style='font-size:100%;line-height:1.2em'>
+extern crate regex;
+
+use regex::Regex;
+
+fn main() {
+    let re = Regex::new(r"^\d{4}-\d{2}-\d{2}$").unwrap();
+    println!("Did our date match? {}", re.is_match("2014-01-01"));
+}
+     </code></pre>
+	</section>
+	<!------------------------------------------------------------->
+	<section>
+	 <h2>Cargo</h2>
+    <pre><code data-trim class='html' style='font-size:90%;line-height:1.2em'>
+$ cargo build
+    Updating registry `https://github.com/rust-lang/crates.io-index`
+ Downloading memchr v0.1.5
+ Downloading libc v0.1.10
+ Downloading regex-synatx v0.2.1
+ Downloading memchr v0.1.5
+ Downloading aho-corasick v0.3.0
+ Downloading regex v0.1.41
+   Compiling memchr v0.1.5
+   Compiling libc v0.1.10
+   Compiling regex-synatx v0.2.1
+   Compiling memchr v0.1.5
+   Compiling aho-corasick v0.3.0
+   Compiling regex v0.1.41
+   Compiling foo v0.1.0 (file:///path/to/project/hello_world)
+    </code></pre>
+	</section>
+	<!------------------------------------------------------------->
+	<section>
+	 <h2>Cargo</h2>
+	  <p>Easy to test code. Lets say we have a project called <em>adder</em></p>
+    <pre><code data-trim class='rust' style='font-size:140%;line-height:1.2em'>
+#[test]
+fn it_works() {
+}
+    </code></pre>
+	</section>
+	<!------------------------------------------------------------->
+	<section>
+	 <h2>Cargo</h2>
+    <pre><code data-trim class='html' style='font-size:110%;line-height:1.2em'>
+$ cargo test
+   Compiling adder v0.0.1 (file:///home/you/projects/adder)
+     Running target/adder-91b3e234d4ed382a
+
+running 1 test
+test it_works ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
+
+   Doc-tests adder
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured
+    </code></pre>
+	</section>
+</section>
+<section>
+	<section>
+	 	<h2>Learning Rust</h2>
+	 	<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Learning <a href="https://twitter.com/rustlang">@rustlang</a>: Borrow checker -&gt; borrow checker -&gt; borrow checker -&gt; borrow checker -&gt; understanding -&gt; productivity -&gt; happiness.</p>&mdash; Lori Holden (@lholden) <a href="https://twitter.com/lholden/status/641175228714909696">September 8, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	</section>
+	<section>
+	 	<h2>Learning Rust</h2>
+		<ul>
+			<li>Getting used to ownership and borrowing can be painful.</li>
+			<li>Fight with the compiler that doesn't do what you want.</li>
+			<li>Mainly comes down to understanding the language.</li>
+		</ul>
+	</section>
+	<section>
+	 	<h3>Rust is what C++ should have been</h3>
+		<ul>
+			<li>C++ suffers from C legacy.</li>
+			<li>I like C but mixing (the C++ way) isn't a good idea.</li>
+			<li>Rust feels like a modern system lang without C legacy.</li>
+		</ul>
+	</section>
+	<section>
+	 	<h2>So should we use it?</h2>
+		<ul>
+			<li>It would be possible to use for tool code.</li>
+			<li>Using it in the runtime we need console support.</li>
+			<li>It's still a young language (1.0 released 2015, May 15)</li>
+			<li>Hard to predict the future.</li>
+		</ul>
+	</section>
+	<section>
+	 	<h2>What else?</h2>
+		<ul>
+			<li>The Rust community is awesome and very welcoming.</li>
+			<li>Documentation was better than I expected.</li>
+			<li>I will continue to fiddle around with Rust.</li>
+			<li>I have considered using it for my debugger project.</li>
+		</ul>
+	</section>
+  <section>
+	 	<h2>Links</h2>
+    <ul>
+      <li><a href='http://github.com/rust-lang/rust'>github.com/rust-lang/rust</a></li>
+      <li><a href='http://www.rust-lang.org'>rust-lang.org</a></li>
+      <li><a href='https://users.rust-lang.org'>users.rust-lang.org</a></li>
+      <li><a href='http://rustbyexample.com'>rustbyexample.com</a></li>
+      <li><a href='http://reddit.com/r/rust'>reddit.com/r/rust</a></li>
+      <li><a href='http://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html'>Fearless Concurrency with Rust</a></li>
+      <li><a href='https://www.quora.com/What-do-C-C++-systems-programmers-think-of-Rust'>What do C/C++ systems programmers think of Rust?</a></li>
+      <li><a href='http://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust'>#rust
+       IRC channel</a></li>
+     </ul>
+   </section>
+</section>
+	</div>
+</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				//width: 640,
+			    //height: 360,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+		<script type='text/javascript'>
+			var arr = document.querySelectorAll('pre > code');
+			for (var i = 0; i < arr.length; i++) {
+				if (arr[i].className != "rust") { continue; }
+				var el = document.createElement('a');
+				el.href = 'http://play.rust-lang.org/?run=1&code=' +
+					encodeURIComponent("#![allow(warnings)]\n" + arr[i].textContent);
+				el.target = '_blank';
+				el.innerHTML = "[playpen]";
+				arr[i].parentElement.parentElement.appendChild(el);
+			}
+		</script>
+
+	</body>
+</html>
