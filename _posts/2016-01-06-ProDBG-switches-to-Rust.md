@@ -45,7 +45,7 @@ I started playing around with exposing parts of the C++ code and just calling "p
 
 Next I started expose some more parts of the code. I also wrote a "plugin handler" which loads the C dlls and just shows one of them on the screen. I also added reloading of plugins at the same time so now when compiling a plugin (which can be written in Rust or C/C++) it gets reloaded on the fly which is nice.
 
-The code can be found here which is just a testbench for playing around before diving into the main code https://github.com/emoon/ProDBG/blob/rust/src/ui_testbench/src/main.rs
+The code can be found here which is just a testbench for playing around before diving into the main code (https://github.com/emoon/ProDBG/blob/rust/src/ui_testbench/src/main.rs)
 
 So what now?
 ------------
@@ -65,6 +65,6 @@ Final words
 -----------
 
 So there you have it. I haven't taken the decision lightly because it affects the contributors I have. Notice that the API will still be in C and I will accept contributions of plugins that is written in C/C++. 
-Still I think it's the right thing to do and here is a great read http://www.ncameron.org/blog/my-thoughts-on-rust-in-2016/ on what happened during 2015 and looking at whats a head in 2016. 
+Still I think it's the right thing to do and here is a great read (http://www.ncameron.org/blog/my-thoughts-on-rust-in-2016) on what happened during 2015 and looking at whats a head in 2016. 
 
 
