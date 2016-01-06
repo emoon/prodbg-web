@@ -45,7 +45,7 @@ Next I started expose some more parts of the code. I also wrote a "plugin handle
 
 The code can be found here which is just a testbench for playing around before diving into the main code [ui_testbench/main.rs](https://github.com/emoon/ProDBG/blob/rust/src/ui_testbench/src/main.rs)
 
-So what now?
+So now what?
 ------------
 
 After playing around with Rust the language has certainly grown on me. It's a great language which offers some great features (see my presentation) again about esp borrowing/lifetime. The cool thing with borrowing/lifetime is that the Rust compiler can reason about truly non-mutable state which allows enabling noalias passes in LLVM which can make Rust code outperform C code.
