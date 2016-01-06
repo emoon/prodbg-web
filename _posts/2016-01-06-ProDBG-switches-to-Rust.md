@@ -6,7 +6,7 @@ title: ProDBG switches to Rust
 As some of you know that follows me on twitter I don't like C++ all that much. It has it's usually issues with having header files, crappy templates and the list goes on.
 The problem is what alternatives are there? I looked at switching to C# but getting that work great on all platforms looked to be a fair amount of challenge (for example at the time x64 wasn't supported in an easy way on Mac) and some people didn't like the choice.
 
-I'm a bit fan of (Common) Lisp in general. I love how it's macros work and it has an elegance found in few languages. Yet it's a bit alien to many people and would make it harder for people to contribute to the projects. Also If possible I want a language which doesn't have a GC and while Lisp code can be made fast it takes some effort in doing so.
+I'm a bit fan of (Common) Lisp in general. I love how it's macros work and it has an elegance found in few languages. Yet it's a bit alien to many people and would make it harder for people to contribute to the project. Also If possible I want a language which doesn't have a GC and while Lisp code can be made fast it takes some effort in doing so.
 
 Entering Rust
 -------------
