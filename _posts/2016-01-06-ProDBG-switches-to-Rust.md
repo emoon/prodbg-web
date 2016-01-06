@@ -11,7 +11,7 @@ I'm a bit fan of (Common) Lisp in general. I love how it's macros work and it ha
 Entering Rust
 -------------
 
-I have been following the Rust project for a few years but never done anything with it until it hit 1.0 in May of 2015. When I started to look closer at Rust I want to see if it was something for me. On paper it looks good (listed the ones I found most interesting)
+I have been following the [Rust](https://www.rust-lang.org) project for a few years but never done anything with it until it hit 1.0 in May of 2015. When I started to look closer at Rust I want to see if it was something for me. On paper it looks good (listed the ones I found most interesting)
 
 * Guaranteed memory safety
 * Threads without data races
