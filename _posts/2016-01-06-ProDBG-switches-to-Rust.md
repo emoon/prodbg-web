@@ -43,7 +43,7 @@ Can ProDBG be written in Rust *without* a full rewrite?
 
 I started playing around with exposing parts of the C++ code and just calling "prodbg_main" the first and only thing in the Rust main code. After fixing some linking errors it all worked! That is one of the upsides with Rust as being a compiled language you can link with C/C++ code without needing some DLL bridge.
 
-Next I started expose some more parts of the code. I also wrote a "plugin handler" which loads the C dlls and just shows one of them on the screen. I also added reloading of plugins at the same time so now when compiling a plugin (which can be written in Rust or C/C++) it gets reloaded on the fly which is nice.
+Next I started expose some more parts of the code. I also wrote a "plugin handler" which loads the dynamic libs (plugins) and just shows one of them on the screen. I also added reloading of plugins at the same time so now when compiling a plugin (which can be written in Rust or C/C++) it gets reloaded on the fly which is nice.
 
 The code can be found here which is just a testbench for playing around before diving into the main code [ui_testbench/main.rs](https://github.com/emoon/ProDBG/blob/rust/src/ui_testbench/src/main.rs)
 
