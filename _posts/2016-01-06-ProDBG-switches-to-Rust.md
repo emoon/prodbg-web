@@ -32,7 +32,7 @@ Turns out that Rust is written in [Rust](https://github.com/rust-lang/rust) and 
 Will Rust work for plugins?
 ---------------------------
 
-My next step was to over the Christmas period try to just add support for Rust to be used in plugins (right now C/C++ is supported) to find out how well this would work when writing plugins in Rust. Turns out that wrapping Rust code on top of a C api based on structs with function pointers works great. Here is an (early) example https://github.com/emoon/ProDBG/blob/master/src/prodbg/tests/rust_api_test/src/lib.rs
+My next step was to over the Christmas period try to just add support for Rust to be used in plugins (right now C/C++ is supported) to find out how well this would work when writing plugins in Rust. Turns out that wrapping Rust code on top of a C api based on structs with function pointers works great. Here is an (early) [example](https://github.com/emoon/ProDBG/blob/master/src/prodbg/tests/rust_api_test/src/lib.rs)
 
 While a bunch of the code in this example can be made nicer by 'Rustifying' it a bit this is pretty much just calling down to the C API which was what I wanted to prove.
 
