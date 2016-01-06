@@ -47,5 +47,24 @@ Next I started expose some more parts of the code. I also wrote a "plugin handle
 
 The code can be found here which is just a testbench for playing around before diving into the main code https://github.com/emoon/ProDBG/blob/rust/src/ui_testbench/src/main.rs
 
+So what now?
+------------
+
+After playing around with Rust the language has certainly grown on me. It's a great language which offers some great features (see my presentation) again about esp borrowing/lifetime. The cool thing with borrowing/lifetime is that the Rust compiler can reason about truly non-mutable state which allows enabling noalias passes in LLVM which can make Rust code outperform C code.
+
+Taking part in the Rust community and following it where the language is heading gives me great hope for the future so I have decided to take the step of writing ProDBG in Rust. Now that being said I will still rely on some external code (like dear imgui, Scintilla, bgfx) still being in C++. There is no reason for me to try to reimplement that at all. Also the exposed API to plugins will still always be C. It makes it *much* easier to add support for other languages in the future (Lua, Python, JS, .NET, etc)
+
+Drawbacks
+---------
+
+Switching to a new language which hasn't been used by many people compared to C/C++ always has it's sets of challanges.Slower compiler (which is being worked on), Harder to debug (no good front-end yet, but I guess that is a good motivation for me :) less people know the language and one never knows what will happen it the future. That being said I still believe that Rust is on the right trajectory and it feels right for me to switch to it. 
+
+The largest drawback though is that it will slow down the development of the project initially which sucks. I had hoped to have a 0.1 at this point and this will delay it futher.
+
+Final words
+-----------
+
+So there you have it. I haven't taken the decision lightly because it affects the contributors I have. Notice that the API will still be in C and I will accept contributions of plugins that is written in C/C++. 
+Still I think it's the right thing to do and here is a great read http://www.ncameron.org/blog/my-thoughts-on-rust-in-2016/ on what happened during 2015 and looking at whats a head in 2016. 
 
 
