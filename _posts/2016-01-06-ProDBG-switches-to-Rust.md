@@ -38,8 +38,8 @@ My next step was to over the Christmas period try to just add support for Rust t
 
 While a bunch of the code in this example can be made nicer by 'Rustifying' it a bit this is pretty much just calling down to the C API which was what I wanted to prove.
 
-Can ProDBG be written in Rust *without* rewriting everything at once?
-------------------------------------------------------------------
+Can ProDBG be written in Rust *without* a full rewrite? 
+-------------------------------------------------------
 
 I started playing around with exposing parts of the C++ code and just calling "prodbg_main" the first and only thing in the Rust main code. After fixing some linking errors it all worked! That is one of the upsides with Rust as being a compiled language you can link with C/C++ code without needing some DLL bridge.
 
