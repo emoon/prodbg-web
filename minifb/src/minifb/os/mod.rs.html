@@ -40,15 +40,27 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1">1</span>
-<span id="2">2</span>
-<span id="3">3</span>
-<span id="4">4</span>
+    <section id='main' class="content source"><pre class="line-numbers"><span id="1"> 1</span>
+<span id="2"> 2</span>
+<span id="3"> 3</span>
+<span id="4"> 4</span>
+<span id="5"> 5</span>
+<span id="6"> 6</span>
+<span id="7"> 7</span>
+<span id="8"> 8</span>
+<span id="9"> 9</span>
+<span id="10">10</span>
 </pre><pre class='rust '>
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_os</span> <span class='op'>=</span> <span class='string'>&quot;macos&quot;</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>macos</span>;
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_os</span> <span class='op'>=</span> <span class='string'>&quot;windows&quot;</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>windows</span>;
+<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>any</span>(<span class='ident'>target_os</span><span class='op'>=</span><span class='string'>&quot;linux&quot;</span>,
+    <span class='ident'>target_os</span><span class='op'>=</span><span class='string'>&quot;freebsd&quot;</span>,
+    <span class='ident'>target_os</span><span class='op'>=</span><span class='string'>&quot;dragonfly&quot;</span>,
+    <span class='ident'>target_os</span><span class='op'>=</span><span class='string'>&quot;netbsd&quot;</span>,
+    <span class='ident'>target_os</span><span class='op'>=</span><span class='string'>&quot;openbsd&quot;</span>))]</span>
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>unix</span>; 
 </pre>
 </section>
     <section id='search' class="content hidden"></section>

@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["Window",""]]});
+initSidebarItems({"struct":[["SharedData",""],["Window",""]]});
