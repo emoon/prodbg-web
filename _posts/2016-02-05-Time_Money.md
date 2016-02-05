@@ -11,7 +11,7 @@ So what do I plan to do? I have a bunch of projects running at the same time but
 
 * ProDBG (This is by far my main project and will have most focus)
 * Demoscene stuff (Can by anything on any platform. I don't have much to write here except I fiddle around with stuff on a regular basis)
-* Open Depacker (A bit slower project, you can find it here https://github.com/emoon/open_depacker)
+* Open Depacker (A bit slower project, you can find it [here](https://github.com/emoon/open_depacker))
 * Other various Rust projects I work on (next to ProDBG) best is just to check my Github page.
 
 Also I hope to do a bit more regular updates progress of the projects. I had hopped at this point ProDBG would be in a better state and 0.1+ but that's how things go. Hopefully now I can focus more and get there faster.
