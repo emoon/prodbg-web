@@ -46,23 +46,23 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-0' class='srclink' href='../src/dynamic_reload/lib.rs.html#1-695' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-0' class='srclink' href='../src/dynamic_reload/lib.rs.html#1-728' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>dynamic_reload is a cross platform library written in <a href="https://www.rust-lang.org">Rust</a> that makes it easier to do reloading of shared libraries (dll:s on windows, .so on *nix, .dylib on Mac, etc)
-The intended use is to allow applications to reload code on the fly without closing down the application when some code changes. 
-This can be seen as a lite version of &quot;live&quot; coding for Rust. 
-It&#39;s worth to mention here that reloading of shared libraries isn&#39;t limited to libraries written in Rust but can be done in any language that can target shared libraries. 
+The intended use is to allow applications to reload code on the fly without closing down the application when some code changes.
+This can be seen as a lite version of &quot;live&quot; coding for Rust.
+It&#39;s worth to mention here that reloading of shared libraries isn&#39;t limited to libraries written in Rust but can be done in any language that can target shared libraries.
 A typical scenario can look like this:</p>
 <pre class='rust rust-example-rendered'>
 <span class='number'>1.</span> <span class='ident'>Application</span> <span class='ident'>Foo</span> <span class='ident'>starts</span>.
 <span class='number'>2.</span> <span class='ident'>Foo</span> <span class='ident'>loads</span> <span class='ident'>the</span> <span class='ident'>shared</span> <span class='ident'>library</span> <span class='ident'>Bar</span>.
-<span class='number'>3.</span> <span class='ident'>The</span> <span class='ident'>programmer</span> <span class='ident'>needs</span> <span class='ident'>to</span> <span class='ident'>make</span> <span class='ident'>some</span> <span class='ident'>code</span> <span class='ident'>changes</span> <span class='ident'>to</span> <span class='ident'>Bar</span>. 
+<span class='number'>3.</span> <span class='ident'>The</span> <span class='ident'>programmer</span> <span class='ident'>needs</span> <span class='ident'>to</span> <span class='ident'>make</span> <span class='ident'>some</span> <span class='ident'>code</span> <span class='ident'>changes</span> <span class='ident'>to</span> <span class='ident'>Bar</span>.
    <span class='ident'>Instead</span> <span class='ident'>of</span> <span class='ident'>closing</span> <span class='ident'>down</span> <span class='ident'>Foo</span> <span class='ident'>the</span> <span class='ident'>programmer</span> <span class='ident'>does</span> <span class='ident'>the</span> <span class='ident'>change</span>, <span class='ident'>recompiles</span> <span class='ident'>the</span> <span class='ident'>code</span>.
-<span class='number'>4.</span> <span class='ident'>Foo</span> <span class='ident'>will</span> <span class='ident'>detect</span> <span class='ident'>that</span> <span class='ident'>Bar</span> <span class='ident'>has</span> <span class='ident'>been</span> <span class='ident'>changed</span> <span class='ident'>on</span> <span class='ident'>the</span> <span class='ident'>disk</span>, 
+<span class='number'>4.</span> <span class='ident'>Foo</span> <span class='ident'>will</span> <span class='ident'>detect</span> <span class='ident'>that</span> <span class='ident'>Bar</span> <span class='ident'>has</span> <span class='ident'>been</span> <span class='ident'>changed</span> <span class='ident'>on</span> <span class='ident'>the</span> <span class='ident'>disk</span>,
    <span class='ident'>will</span> <span class='ident'>unload</span> <span class='ident'>the</span> <span class='ident'>old</span> <span class='ident'>version</span> <span class='ident'>and</span> <span class='ident'>load</span> <span class='ident'>the</span> <span class='ident'>new</span> <span class='ident'>one</span>.</pre>
 
-<p>dynamic_reload library will not try to solve any stale data hanging around in Foo from Bar. 
-It is up to Foo to make sure all data has been cleaned up before Foo is reloaded. 
-Foo will be getting a callback from dynamic_reload before Bar is reloaded and that allows Foo to take needed action. 
+<p>dynamic_reload library will not try to solve any stale data hanging around in Foo from Bar.
+It is up to Foo to make sure all data has been cleaned up before Foo is reloaded.
+Foo will be getting a callback from dynamic_reload before Bar is reloaded and that allows Foo to take needed action.
 Then another call will be made after Bar has been reloaded to allow Foo to restore state for Bar if needed.</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -70,7 +70,8 @@ Then another call will be made after Bar has been reloaded to allow Foo to resto
                         <td><a class='struct' href='struct.DynamicReload.html'
                                title='dynamic_reload::DynamicReload'>DynamicReload</a></td>
                         <td class='docblock short'>
-                             
+                             <p>Contains information about loaded libraries and also tracks search paths and reloading events.</p>
+
                         </td>
                     </tr>
                 
@@ -78,7 +79,8 @@ Then another call will be made after Bar has been reloaded to allow Foo to resto
                         <td><a class='struct' href='struct.Lib.html'
                                title='dynamic_reload::Lib'>Lib</a></td>
                         <td class='docblock short'>
-                             
+                             <p>Contains the information for a loaded library.</p>
+
                         </td>
                     </tr>
                 
@@ -93,10 +95,20 @@ Then another call will be made after Bar has been reloaded to allow Foo to resto
                 </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
                     <tr class=' module-item'>
+                        <td><a class='enum' href='enum.Error.html'
+                               title='dynamic_reload::Error'>Error</a></td>
+                        <td class='docblock short'>
+                             <p>Errors that can be return from various operatiors</p>
+
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
                         <td><a class='enum' href='enum.PlatformName.html'
                                title='dynamic_reload::PlatformName'>PlatformName</a></td>
                         <td class='docblock short'>
-                             
+                             <p>This is used to decide how the name used for <a href="struct.DynamicReload.html#method.add_library">add_library</a> is to be handled.</p>
+
                         </td>
                     </tr>
                 
@@ -104,13 +116,25 @@ Then another call will be made after Bar has been reloaded to allow Foo to resto
                         <td><a class='enum' href='enum.Search.html'
                                title='dynamic_reload::Search'>Search</a></td>
                         <td class='docblock short'>
-                             
+                             <p>Searching for a shared library can be done in current directory, but can also be allowed to
+search backwards.</p>
+
                         </td>
                     </tr>
                 
                     <tr class=' module-item'>
                         <td><a class='enum' href='enum.UpdateState.html'
                                title='dynamic_reload::UpdateState'>UpdateState</a></td>
+                        <td class='docblock short'>
+                             <p>This is the states that the callback function supplied to <a href="struct.DynamicReload.html#method.update">update</a> can be called with.</p>
+
+                        </td>
+                    </tr>
+                </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='type' href='type.Result.html'
+                               title='dynamic_reload::Result'>Result</a></td>
                         <td class='docblock short'>
                              
                         </td>
