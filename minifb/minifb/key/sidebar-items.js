@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Key","Key is used by the get key functions to check if some keys on the keyboard has been pressed"]]});

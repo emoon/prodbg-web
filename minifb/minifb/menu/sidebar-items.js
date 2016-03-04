@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["MENU_KEY_ALT","Alt key"],["MENU_KEY_COMMAND","Command key on Mac OS"],["MENU_KEY_CTRL","Control key"],["MENU_KEY_SHIFT","Shift key"],["MENU_KEY_WIN","Windows key on Windows"]],"struct":[["Menu",""]]});

@@ -521,67 +521,6 @@
 <span id="478">478</span>
 <span id="479">479</span>
 <span id="480">480</span>
-<span id="481">481</span>
-<span id="482">482</span>
-<span id="483">483</span>
-<span id="484">484</span>
-<span id="485">485</span>
-<span id="486">486</span>
-<span id="487">487</span>
-<span id="488">488</span>
-<span id="489">489</span>
-<span id="490">490</span>
-<span id="491">491</span>
-<span id="492">492</span>
-<span id="493">493</span>
-<span id="494">494</span>
-<span id="495">495</span>
-<span id="496">496</span>
-<span id="497">497</span>
-<span id="498">498</span>
-<span id="499">499</span>
-<span id="500">500</span>
-<span id="501">501</span>
-<span id="502">502</span>
-<span id="503">503</span>
-<span id="504">504</span>
-<span id="505">505</span>
-<span id="506">506</span>
-<span id="507">507</span>
-<span id="508">508</span>
-<span id="509">509</span>
-<span id="510">510</span>
-<span id="511">511</span>
-<span id="512">512</span>
-<span id="513">513</span>
-<span id="514">514</span>
-<span id="515">515</span>
-<span id="516">516</span>
-<span id="517">517</span>
-<span id="518">518</span>
-<span id="519">519</span>
-<span id="520">520</span>
-<span id="521">521</span>
-<span id="522">522</span>
-<span id="523">523</span>
-<span id="524">524</span>
-<span id="525">525</span>
-<span id="526">526</span>
-<span id="527">527</span>
-<span id="528">528</span>
-<span id="529">529</span>
-<span id="530">530</span>
-<span id="531">531</span>
-<span id="532">532</span>
-<span id="533">533</span>
-<span id="534">534</span>
-<span id="535">535</span>
-<span id="536">536</span>
-<span id="537">537</span>
-<span id="538">538</span>
-<span id="539">539</span>
-<span id="540">540</span>
-<span id="541">541</span>
 </pre><pre class='rust '>
 <span class='doccomment'>/// Scale will scale the frame buffer and the window that is being sent in when calling the update</span>
 <span class='doccomment'>/// function. This is useful if you for example want to display a 320 x 256 window on a screen with</span>
@@ -627,133 +566,6 @@
     <span class='ident'>Right</span>,
 }
 
-<span class='doccomment'>/// Key is used by the get key functions to check if some keys on the keyboard has been pressed</span>
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>PartialEq</span>, <span class='ident'>Clone</span>, <span class='ident'>Copy</span>)]</span>
-<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>Key</span> {
-    <span class='ident'>Key0</span> <span class='op'>=</span> <span class='number'>0</span>,
-    <span class='ident'>Key1</span> <span class='op'>=</span> <span class='number'>1</span>,
-    <span class='ident'>Key2</span> <span class='op'>=</span> <span class='number'>2</span>,
-    <span class='ident'>Key3</span> <span class='op'>=</span> <span class='number'>3</span>,
-    <span class='ident'>Key4</span> <span class='op'>=</span> <span class='number'>4</span>,
-    <span class='ident'>Key5</span> <span class='op'>=</span> <span class='number'>5</span>,
-    <span class='ident'>Key6</span> <span class='op'>=</span> <span class='number'>6</span>,
-    <span class='ident'>Key7</span> <span class='op'>=</span> <span class='number'>7</span>,
-    <span class='ident'>Key8</span> <span class='op'>=</span> <span class='number'>8</span>,
-    <span class='ident'>Key9</span> <span class='op'>=</span> <span class='number'>9</span>,
-
-    <span class='ident'>A</span> <span class='op'>=</span> <span class='number'>10</span>,
-    <span class='ident'>B</span> <span class='op'>=</span> <span class='number'>11</span>,
-    <span class='ident'>C</span> <span class='op'>=</span> <span class='number'>12</span>,
-    <span class='ident'>D</span> <span class='op'>=</span> <span class='number'>13</span>,
-    <span class='ident'>E</span> <span class='op'>=</span> <span class='number'>14</span>,
-    <span class='ident'>F</span> <span class='op'>=</span> <span class='number'>15</span>,
-    <span class='ident'>G</span> <span class='op'>=</span> <span class='number'>16</span>,
-    <span class='ident'>H</span> <span class='op'>=</span> <span class='number'>17</span>,
-    <span class='ident'>I</span> <span class='op'>=</span> <span class='number'>18</span>,
-    <span class='ident'>J</span> <span class='op'>=</span> <span class='number'>19</span>,
-    <span class='ident'>K</span> <span class='op'>=</span> <span class='number'>20</span>,
-    <span class='ident'>L</span> <span class='op'>=</span> <span class='number'>21</span>,
-    <span class='ident'>M</span> <span class='op'>=</span> <span class='number'>22</span>,
-    <span class='ident'>N</span> <span class='op'>=</span> <span class='number'>23</span>,
-    <span class='ident'>O</span> <span class='op'>=</span> <span class='number'>24</span>,
-    <span class='ident'>P</span> <span class='op'>=</span> <span class='number'>25</span>,
-    <span class='ident'>Q</span> <span class='op'>=</span> <span class='number'>26</span>,
-    <span class='ident'>R</span> <span class='op'>=</span> <span class='number'>27</span>,
-    <span class='ident'>S</span> <span class='op'>=</span> <span class='number'>28</span>,
-    <span class='ident'>T</span> <span class='op'>=</span> <span class='number'>29</span>,
-    <span class='ident'>U</span> <span class='op'>=</span> <span class='number'>30</span>,
-    <span class='ident'>V</span> <span class='op'>=</span> <span class='number'>31</span>,
-    <span class='ident'>W</span> <span class='op'>=</span> <span class='number'>32</span>,
-    <span class='ident'>X</span> <span class='op'>=</span> <span class='number'>33</span>,
-    <span class='ident'>Y</span> <span class='op'>=</span> <span class='number'>34</span>,
-    <span class='ident'>Z</span> <span class='op'>=</span> <span class='number'>35</span>,
-
-    <span class='ident'>F1</span>,
-    <span class='ident'>F2</span>,
-    <span class='ident'>F3</span>,
-    <span class='ident'>F4</span>,
-    <span class='ident'>F5</span>,
-    <span class='ident'>F6</span>,
-    <span class='ident'>F7</span>,
-    <span class='ident'>F8</span>,
-    <span class='ident'>F9</span>,
-    <span class='ident'>F10</span>,
-    <span class='ident'>F11</span>,
-    <span class='ident'>F12</span>,
-    <span class='ident'>F13</span>,
-    <span class='ident'>F14</span>,
-    <span class='ident'>F15</span>,
-
-    <span class='ident'>Down</span>,
-    <span class='ident'>Left</span>,
-    <span class='ident'>Right</span>,
-    <span class='ident'>Up</span>,
-    <span class='ident'>Apostrophe</span>,
-    <span class='ident'>Backquote</span>,
-
-    <span class='ident'>Backslash</span>,
-    <span class='ident'>Comma</span>,
-    <span class='ident'>Equal</span>,
-    <span class='ident'>LeftBracket</span>,
-    <span class='ident'>Minus</span>,
-    <span class='ident'>Period</span>,
-    <span class='ident'>RightBracket</span>,
-    <span class='ident'>Semicolon</span>,
-
-    <span class='ident'>Slash</span>,
-    <span class='ident'>Backspace</span>,
-    <span class='ident'>Delete</span>,
-    <span class='ident'>End</span>,
-    <span class='ident'>Enter</span>,
-
-    <span class='ident'>Escape</span>,
-
-    <span class='ident'>Home</span>,
-    <span class='ident'>Insert</span>,
-    <span class='ident'>Menu</span>,
-
-    <span class='ident'>PageDown</span>,
-    <span class='ident'>PageUp</span>,
-
-    <span class='ident'>Pause</span>,
-    <span class='ident'>Space</span>,
-    <span class='ident'>Tab</span>,
-    <span class='ident'>NumLock</span>,
-    <span class='ident'>CapsLock</span>,
-    <span class='ident'>ScrollLock</span>,
-    <span class='ident'>LeftShift</span>,
-    <span class='ident'>RightShift</span>,
-    <span class='ident'>LeftCtrl</span>,
-    <span class='ident'>RightCtrl</span>,
-
-    <span class='ident'>NumPad0</span>,
-    <span class='ident'>NumPad1</span>,
-    <span class='ident'>NumPad2</span>,
-    <span class='ident'>NumPad3</span>,
-    <span class='ident'>NumPad4</span>,
-    <span class='ident'>NumPad5</span>,
-    <span class='ident'>NumPad6</span>,
-    <span class='ident'>NumPad7</span>,
-    <span class='ident'>NumPad8</span>,
-    <span class='ident'>NumPad9</span>,
-    <span class='ident'>NumPadDot</span>,
-    <span class='ident'>NumPadSlash</span>,
-    <span class='ident'>NumPadAsterisk</span>,
-    <span class='ident'>NumPadMinus</span>,
-    <span class='ident'>NumPadPlus</span>,
-    <span class='ident'>NumPadEnter</span>,
-
-    <span class='ident'>LeftAlt</span>,
-    <span class='ident'>RightAlt</span>,
-
-    <span class='ident'>LeftSuper</span>,
-    <span class='ident'>RightSuper</span>,
-
-    <span class='doccomment'>/// Used when an Unknown key has been pressed</span>
-    <span class='ident'>Unknown</span>,
-
-    <span class='ident'>Count</span> <span class='op'>=</span> <span class='number'>107</span>,
-}
 
 <span class='doccomment'>/// Key is used by the get key functions to check if some keys on the keyboard has been pressed</span>
 <span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>PartialEq</span>, <span class='ident'>Clone</span>, <span class='ident'>Copy</span>)]</span>
@@ -771,10 +583,24 @@
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>raw</span>;
 
 <span class='attribute'>#[<span class='ident'>doc</span>(<span class='ident'>hidden</span>)]</span>
+<span class='kw'>mod</span> <span class='ident'>error</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>error</span>::<span class='ident'>Error</span>;
+<span class='kw'>pub</span> <span class='kw'>type</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>T</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>std</span>::<span class='ident'>result</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>T</span>, <span class='ident'>Error</span><span class='op'>&gt;</span>;
+
+<span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>key</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>key</span>::<span class='ident'>Key</span> <span class='kw'>as</span> <span class='ident'>Key</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>os</span>;
 <span class='kw'>mod</span> <span class='ident'>mouse_handler</span>;
 <span class='kw'>mod</span> <span class='ident'>key_handler</span>;
 <span class='kw'>mod</span> <span class='ident'>window_flags</span>;
+<span class='kw'>mod</span> <span class='ident'>menu</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>menu</span>::<span class='ident'>Menu</span> <span class='kw'>as</span> <span class='ident'>Menu</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>menu</span>::<span class='ident'>MENU_KEY_COMMAND</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>menu</span>::<span class='ident'>MENU_KEY_WIN</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>menu</span>::<span class='ident'>MENU_KEY_SHIFT</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>menu</span>::<span class='ident'>MENU_KEY_CTRL</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>menu</span>::<span class='ident'>MENU_KEY_ALT</span>;
+
 
 <span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>target_os</span> <span class='op'>=</span> <span class='string'>&quot;macos&quot;</span>)]</span>
 <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>os</span>::<span class='ident'>macos</span> <span class='kw'>as</span> <span class='ident'>imp</span>;
@@ -791,14 +617,14 @@
 
 <span class='doccomment'>///</span>
 <span class='doccomment'>/// WindowOptions is creation settings for the window. By default the settings are defined for</span>
-<span class='doccomment'>/// displayng a 32-bit buffer (no scaling of window is possible) </span>
+<span class='doccomment'>/// displayng a 32-bit buffer (no scaling of window is possible)</span>
 <span class='doccomment'>///</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>WindowOptions</span> {
     <span class='doccomment'>/// If the window should be borderless (default: false)</span>
     <span class='kw'>pub</span> <span class='ident'>borderless</span>: <span class='ident'>bool</span>,
     <span class='doccomment'>/// If the window should have a title (default: true)</span>
     <span class='kw'>pub</span> <span class='ident'>title</span>: <span class='ident'>bool</span>,
-    <span class='doccomment'>/// If it should be possible to resize the window (default: false) </span>
+    <span class='doccomment'>/// If it should be possible to resize the window (default: false)</span>
     <span class='kw'>pub</span> <span class='ident'>resize</span>: <span class='ident'>bool</span>,
     <span class='doccomment'>/// Scale of the window that used in conjunction with update_with_buffer (default: X1)</span>
     <span class='kw'>pub</span> <span class='ident'>scale</span>: <span class='ident'>Scale</span>
@@ -850,10 +676,10 @@
     <span class='doccomment'>/// Open up a window that is resizeable</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// ```ignore</span>
-    <span class='doccomment'>/// let mut window = match Window::new(&quot;Test&quot;, 640, 400, </span>
+    <span class='doccomment'>/// let mut window = match Window::new(&quot;Test&quot;, 640, 400,</span>
     <span class='doccomment'>///                                     WindowOptions {</span>
     <span class='doccomment'>///                                         resize: true,</span>
-    <span class='doccomment'>///                                         ..WindowOptions::default() </span>
+    <span class='doccomment'>///                                         ..WindowOptions::default()</span>
     <span class='doccomment'>///                                     }) {</span>
     <span class='doccomment'>///    Ok(win) =&gt; win,</span>
     <span class='doccomment'>///    Err(err) =&gt; {</span>
@@ -862,7 +688,7 @@
     <span class='doccomment'>///    }</span>
     <span class='doccomment'>///};</span>
     <span class='doccomment'>/// ```</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>new</span>(<span class='ident'>name</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='ident'>width</span>: <span class='ident'>usize</span>, <span class='ident'>height</span>: <span class='ident'>usize</span>, <span class='ident'>opts</span>: <span class='ident'>WindowOptions</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Window</span>, <span class='kw-2'>&amp;</span><span class='ident'>str</span><span class='op'>&gt;</span> {
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>new</span>(<span class='ident'>name</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='ident'>width</span>: <span class='ident'>usize</span>, <span class='ident'>height</span>: <span class='ident'>usize</span>, <span class='ident'>opts</span>: <span class='ident'>WindowOptions</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Window</span><span class='op'>&gt;</span> {
         <span class='ident'>imp</span>::<span class='ident'>Window</span>::<span class='ident'>new</span>(<span class='ident'>name</span>, <span class='ident'>width</span>, <span class='ident'>height</span>, <span class='ident'>opts</span>).<span class='ident'>map</span>(<span class='ident'>Window</span>)
     }
 
@@ -882,7 +708,7 @@
     }
 
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Updates the window with a 32-bit pixel buffer. Notice that the buffer needs to be at least </span>
+    <span class='doccomment'>/// Updates the window with a 32-bit pixel buffer. Notice that the buffer needs to be at least</span>
     <span class='doccomment'>/// the size of the created window</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Examples</span>
@@ -900,7 +726,7 @@
     }
 
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Updates the window (this is required to call in order to get keyboard/mouse input, etc) </span>
+    <span class='doccomment'>/// Updates the window (this is required to call in order to get keyboard/mouse input, etc)</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Examples</span>
     <span class='doccomment'>///</span>
@@ -919,7 +745,7 @@
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// Checks if the window is still open. A window can be closed by the user (by for example</span>
     <span class='doccomment'>/// pressing the close button on the window) It&#39;s up to the user to make sure that this is</span>
-    <span class='doccomment'>/// being checked and take action depending on the state. </span>
+    <span class='doccomment'>/// being checked and take action depending on the state.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Examples</span>
     <span class='doccomment'>///</span>
@@ -960,31 +786,31 @@
     <span class='doccomment'>///     println!(&quot;x {} y {}&quot;, mouse.0, mouse.1);</span>
     <span class='doccomment'>/// });</span>
     <span class='doccomment'>/// ```</span>
-    <span class='doccomment'>/// </span>
+    <span class='doccomment'>///</span>
     <span class='attribute'>#[<span class='ident'>inline</span>]</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_mouse_pos</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>mode</span>: <span class='ident'>MouseMode</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span>(<span class='ident'>f32</span>, <span class='ident'>f32</span>)<span class='op'>&gt;</span> {
         <span class='self'>self</span>.<span class='number'>0</span>.<span class='ident'>get_mouse_pos</span>(<span class='ident'>mode</span>)
     }
 
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Check if a mouse button is down or not </span>
+    <span class='doccomment'>/// Check if a mouse button is down or not</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Examples</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// ```ignore</span>
     <span class='doccomment'>/// let left_down = window.get_mouse_down(MouseButton::Left);</span>
-    <span class='doccomment'>/// println!(&quot;is left down? {}&quot;, left_down) </span>
+    <span class='doccomment'>/// println!(&quot;is left down? {}&quot;, left_down)</span>
     <span class='doccomment'>/// ```</span>
-    <span class='doccomment'>/// </span>
+    <span class='doccomment'>///</span>
     <span class='attribute'>#[<span class='ident'>inline</span>]</span>
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_mouse_down</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>button</span>: <span class='ident'>MouseButton</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> { 
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>get_mouse_down</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>button</span>: <span class='ident'>MouseButton</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
         <span class='self'>self</span>.<span class='number'>0</span>.<span class='ident'>get_mouse_down</span>(<span class='ident'>button</span>)
     }
 
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// Get the current movement of the scroll wheel.</span>
     <span class='doccomment'>/// Scroll wheel can mean different thing depending on the device attach.</span>
-    <span class='doccomment'>/// For example on Mac with trackpad &quot;scroll wheel&quot; means two finger </span>
+    <span class='doccomment'>/// For example on Mac with trackpad &quot;scroll wheel&quot; means two finger</span>
     <span class='doccomment'>/// swiping up/down (y axis) and to the sides (x-axis)</span>
     <span class='doccomment'>/// When using a mouse this assumes the scroll wheel which often is only y direction.</span>
     <span class='doccomment'>///</span>
@@ -1003,7 +829,7 @@
     }
 
     <span class='doccomment'>///</span>
-    <span class='doccomment'>/// Get the current keys that are down. </span>
+    <span class='doccomment'>/// Get the current keys that are down.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Examples</span>
     <span class='doccomment'>///</span>
@@ -1045,7 +871,7 @@
         <span class='self'>self</span>.<span class='number'>0</span>.<span class='ident'>get_keys_pressed</span>(<span class='ident'>repeat</span>)
     }
 
-    <span class='doccomment'>/// </span>
+    <span class='doccomment'>///</span>
     <span class='doccomment'>/// Check if a single key is down.</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// # Examples</span>
@@ -1061,7 +887,7 @@
         <span class='self'>self</span>.<span class='number'>0</span>.<span class='ident'>is_key_down</span>(<span class='ident'>key</span>)
     }
 
-    <span class='doccomment'>/// </span>
+    <span class='doccomment'>///</span>
     <span class='doccomment'>/// Check if a single key is pressed. KeyRepeat will control if the key should be repeated or</span>
     <span class='doccomment'>/// not while being pressed.</span>
     <span class='doccomment'>///</span>
@@ -1100,12 +926,64 @@
     <span class='doccomment'>/// # Examples</span>
     <span class='doccomment'>///</span>
     <span class='doccomment'>/// ```ignore</span>
-    <span class='doccomment'>/// window.set_key_repeat_rate(0.01) // 0.01 sec between keys </span>
+    <span class='doccomment'>/// window.set_key_repeat_rate(0.01) // 0.01 sec between keys</span>
     <span class='doccomment'>/// ```</span>
     <span class='doccomment'>///</span>
     <span class='attribute'>#[<span class='ident'>inline</span>]</span>
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>set_key_repeat_rate</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>rate</span>: <span class='ident'>f32</span>) {
         <span class='self'>self</span>.<span class='number'>0</span>.<span class='ident'>set_key_repeat_rate</span>(<span class='ident'>rate</span>)
+    }
+
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// Returns if this windows is the current active one</span>
+    <span class='doccomment'>///</span>
+    <span class='attribute'>#[<span class='ident'>inline</span>]</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>is_active</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='ident'>bool</span> {
+        <span class='self'>self</span>.<span class='number'>0</span>.<span class='ident'>is_active</span>()
+    }
+
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// This allows adding menus to your windows. As menus behaves a bit diffrently depending on</span>
+    <span class='doccomment'>/// Operating system here is how it works. See [Menu] for description on each field.</span>
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// ```ignore</span>
+    <span class='doccomment'>/// Windows:</span>
+    <span class='doccomment'>///   Each window has their own menu and shortcuts are active depending on active window.</span>
+    <span class='doccomment'>/// Mac:</span>
+    <span class='doccomment'>///   As Mac uses one menu for the whole program the menu will change depending</span>
+    <span class='doccomment'>///   on which window you have active.</span>
+    <span class='doccomment'>/// Linux/BSD/etc:</span>
+    <span class='doccomment'>///   Menus aren&#39;t supported as they depend on each WindowManager and is outside of the</span>
+    <span class='doccomment'>///   scope for this library to support.</span>
+    <span class='doccomment'>/// ```</span>
+    <span class='doccomment'>///</span>
+    <span class='attribute'>#[<span class='ident'>inline</span>]</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>add_menu</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>menu_name</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='ident'>menu</span>: <span class='kw-2'>&amp;</span><span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>Menu</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
+        <span class='self'>self</span>.<span class='number'>0</span>.<span class='ident'>add_menu</span>(<span class='ident'>menu_name</span>, <span class='ident'>menu</span>)
+    }
+
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// Updates an existing menu created with [add_menu]</span>
+    <span class='doccomment'>///</span>
+    <span class='attribute'>#[<span class='ident'>inline</span>]</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>update_menu</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>menu_name</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='ident'>menu</span>: <span class='kw-2'>&amp;</span><span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>Menu</span><span class='op'>&gt;</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
+        <span class='self'>self</span>.<span class='number'>0</span>.<span class='ident'>update_menu</span>(<span class='ident'>menu_name</span>, <span class='ident'>menu</span>)
+    }
+
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// Remove a menu that has been added with [add_menu]</span>
+    <span class='doccomment'>///</span>
+    <span class='attribute'>#[<span class='ident'>inline</span>]</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>remove_menu</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>menu_name</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
+        <span class='self'>self</span>.<span class='number'>0</span>.<span class='ident'>remove_menu</span>(<span class='ident'>menu_name</span>)
+    }
+
+    <span class='doccomment'>///</span>
+    <span class='doccomment'>/// Check if a menu item has been pressed</span>
+    <span class='doccomment'>///</span>
+    <span class='attribute'>#[<span class='ident'>inline</span>]</span>
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>is_menu_pressed</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Option</span><span class='op'>&lt;</span><span class='ident'>usize</span><span class='op'>&gt;</span> {
+        <span class='self'>self</span>.<span class='number'>0</span>.<span class='ident'>is_menu_pressed</span>()
     }
 }
 
