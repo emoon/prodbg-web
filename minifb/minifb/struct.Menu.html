@@ -46,34 +46,27 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-541' class='srclink' href='../src/minifb/menu.rs.html#19-34' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct Menu&lt;'a&gt; {
-    pub name: &amp;'a <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>,
-    pub id: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
-    pub key: <a class='enum' href='../minifb/key/enum.Key.html' title='minifb::key::Key'>Key</a>,
-    pub modifier: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
-    pub mac_mod: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,
-    pub enabled: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
-    pub sub_menu: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;'a <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../minifb/struct.Menu.html' title='minifb::Menu'>Menu</a>&lt;'a&gt;&gt;&gt;,
-}</pre><div class='docblock'><p>Used to hold the data for creating menus for the Application</p>
-</div><h2 class='fields'>Fields</h2>
-<table><tr class='stab '>
-                                  <td id='structfield.name'><code>name</code></td><td><div class='docblock'><p>Name of the menu item</p>
-</div></td></tr><tr class='stab '>
-                                  <td id='structfield.id'><code>id</code></td><td><div class='docblock'><p>User-defined Id thot will be sent back to the application in [get_menu_event]</p>
-</div></td></tr><tr class='stab '>
-                                  <td id='structfield.key'><code>key</code></td><td><div class='docblock'><p>Shortcut key for the menu item</p>
-</div></td></tr><tr class='stab '>
-                                  <td id='structfield.modifier'><code>modifier</code></td><td><div class='docblock'><p>Modifier on Windows for the menu</p>
-</div></td></tr><tr class='stab '>
-                                  <td id='structfield.mac_mod'><code>mac_mod</code></td><td><div class='docblock'><p>Modifier on Mac OS</p>
-</div></td></tr><tr class='stab '>
-                                  <td id='structfield.enabled'><code>enabled</code></td><td><div class='docblock'><p>Menu item should be enabled on grayed out</p>
-</div></td></tr><tr class='stab '>
-                                  <td id='structfield.sub_menu'><code>sub_menu</code></td><td><div class='docblock'><p>Sub-menu. Vector of a sub-menu, otherwise None if no sub-menu</p>
-</div></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl&lt;'a&gt; <a class='struct' href='../minifb/struct.Menu.html' title='minifb::Menu'>Menu</a>&lt;'a&gt;</code></h3><div class='impl-items'><h4 id='method.separotor' class='method'><code>fn <a href='#method.separotor' class='fnname'>separotor</a>() -&gt; <a class='struct' href='../minifb/struct.Menu.html' title='minifb::Menu'>Menu</a>&lt;'a&gt;</code></h4>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='struct' href='../minifb/struct.Menu.html' title='minifb::Menu'>Menu</a>&lt;'a&gt;</code></h3><div class='impl-items'><h4 id='method.default' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#method.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../minifb/struct.Menu.html' title='minifb::Menu'>Menu</a>&lt;'a&gt;</code></h4>
-</div></section>
+        </span><a id='src-836' class='srclink' href='../src/minifb/src/lib.rs.html#559' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Menu(_);</pre><div class='docblock'><p>Menu holds info for menus </p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../minifb/struct.Menu.html' title='minifb::Menu'>Menu</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; Result&lt;<a class='struct' href='../minifb/struct.Menu.html' title='minifb::Menu'>Menu</a>&gt;</code></h4>
+<div class='docblock'><p>Create a new menu. Returns error if failed</p>
+</div><h4 id='method.destroy_menu' class='method'><code>fn <a href='#method.destroy_menu' class='fnname'>destroy_menu</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Destroys a menu. Currently not implemented</p>
+</div><h4 id='method.add_sub_menu' class='method'><code>fn <a href='#method.add_sub_menu' class='fnname'>add_sub_menu</a>(&amp;mut self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, menu: &amp;<a class='struct' href='../minifb/struct.Menu.html' title='minifb::Menu'>Menu</a>)</code></h4>
+<div class='docblock'><p>Adds a sub menu to the current menu</p>
+</div><h4 id='method.add_separator' class='method'><code>fn <a href='#method.add_separator' class='fnname'>add_separator</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Adds a menu separator</p>
+</div><h4 id='method.add_menu_item' class='method'><code>fn <a href='#method.add_menu_item' class='fnname'>add_menu_item</a>(&amp;mut self, item: &amp;<a class='struct' href='../minifb/struct.MenuItem.html' title='minifb::MenuItem'>MenuItem</a>) -&gt; MenuItemHandle</code></h4>
+<div class='docblock'><p>Adds an item to the menu</p>
+</div><h4 id='method.add_item' class='method'><code>fn <a href='#method.add_item' class='fnname'>add_item</a>(&amp;mut self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, id: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../minifb/struct.MenuItem.html' title='minifb::MenuItem'>MenuItem</a></code></h4>
+<div class='docblock'><p>Adds an item to the menu. Notice that you need to call &quot;build&quot; to finish the add</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='ident'>menu</span>.<span class='ident'>add_item</span>(<span class='string'>&quot;test&quot;</span>, <span class='number'>1</span>).<span class='ident'>shortcut</span>(<span class='ident'>Key</span>::<span class='ident'>A</span>, <span class='number'>0</span>).<span class='ident'>build</span>()</pre>
+</div><h4 id='method.remove_item' class='method'><code>fn <a href='#method.remove_item' class='fnname'>remove_item</a>(&amp;mut self, item: &amp;MenuItemHandle)</code></h4>
+<div class='docblock'><p>Removes an item from the menu</p>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -116,7 +109,7 @@
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>

@@ -46,32 +46,43 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-0' class='srclink' href='../src/minifb/lib.rs.html#1-478' title='goto source code'>[src]</a></span></h1>
-<h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
-<table><tr><td><code>pub use key::<a class='enum' href='../minifb/key/enum.Key.html' title='minifb::key::Key'>Key</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
-<table>
-                    <tr class=' module-item'>
-                        <td><a class='mod' href='key/index.html'
-                               title='minifb::key'>key</a></td>
-                        <td class='docblock short'>
-                             
-                        </td>
-                    </tr>
-                
-                    <tr class=' module-item'>
-                        <td><a class='mod' href='os/index.html'
-                               title='minifb::os'>os</a></td>
-                        <td class='docblock short'>
-                             
-                        </td>
-                    </tr>
-                </table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+        </span><a id='src-0' class='srclink' href='../src/minifb/src/lib.rs.html#1-735' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>minifb is a cross platform library written in <a href="https://www.rust-lang.org">Rust</a> that makes to
+open windows (usually native to the running operating system) and can optionally show a 32-bit
+buffer. minifb also support keyboard, mouse input and menus on selected operating systems.</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                     <tr class=' module-item'>
                         <td><a class='struct' href='struct.Menu.html'
                                title='minifb::Menu'>Menu</a></td>
                         <td class='docblock short'>
-                             
+                             <p>Menu holds info for menus </p>
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.MenuItem.html'
+                               title='minifb::MenuItem'>MenuItem</a></td>
+                        <td class='docblock short'>
+                             <p>Holds info about each item in a menu </p>
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.UnixMenu.html'
+                               title='minifb::UnixMenu'>UnixMenu</a></td>
+                        <td class='docblock short'>
+                             <p>Used on Unix (Linux, FreeBSD, etc) as menus aren&#39;t supported in a native where there.
+This structure can be used by calling [#get_unix_menus] on Window.</p>
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='struct' href='struct.UnixMenuItem.html'
+                               title='minifb::UnixMenuItem'>UnixMenuItem</a></td>
+                        <td class='docblock short'>
+                             <p>Used for on Unix (Linux, FreeBSD, etc) as menus aren&#39;t supported in a native where there.
+This structure holds info for each item in a #UnixMenu</p>
                         </td>
                     </tr>
                 
@@ -79,7 +90,8 @@
                         <td><a class='struct' href='struct.Window.html'
                                title='minifb::Window'>Window</a></td>
                         <td class='docblock short'>
-                             
+                             <p>Window is used to open up a window. It&#39;s possible to optionally display a 32-bit buffer when
+the widow is set as non-resizable.</p>
                         </td>
                     </tr>
                 
@@ -87,7 +99,8 @@
                         <td><a class='struct' href='struct.WindowOptions.html'
                                title='minifb::WindowOptions'>WindowOptions</a></td>
                         <td class='docblock short'>
-                             
+                             <p>WindowOptions is creation settings for the window. By default the settings are defined for
+displayng a 32-bit buffer (no scaling of window is possible)</p>
                         </td>
                     </tr>
                 </table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
@@ -97,7 +110,6 @@
                                title='minifb::Error'>Error</a></td>
                         <td class='docblock short'>
                              <p>Errors that can be return from various operatiors</p>
-
                         </td>
                     </tr>
                 
@@ -106,7 +118,6 @@
                                title='minifb::KeyRepeat'>KeyRepeat</a></td>
                         <td class='docblock short'>
                              <p>Used for is_key_pressed and get_keys_pressed() to indicated if repeat of presses is wanted</p>
-
                         </td>
                     </tr>
                 
@@ -115,7 +126,6 @@
                                title='minifb::MouseButton'>MouseButton</a></td>
                         <td class='docblock short'>
                              <p>The various mouse buttons that are availible</p>
-
                         </td>
                     </tr>
                 
@@ -124,7 +134,6 @@
                                title='minifb::MouseMode'>MouseMode</a></td>
                         <td class='docblock short'>
                              <p>Key is used by the get key functions to check if some keys on the keyboard has been pressed</p>
-
                         </td>
                     </tr>
                 
@@ -135,7 +144,6 @@
                              <p>Scale will scale the frame buffer and the window that is being sent in when calling the update
 function. This is useful if you for example want to display a 320 x 256 window on a screen with
 much higher resolution which would result in that the window is very small.</p>
-
                         </td>
                     </tr>
                 </table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
@@ -145,7 +153,6 @@ much higher resolution which would result in that the window is very small.</p>
                                title='minifb::MENU_KEY_ALT'>MENU_KEY_ALT</a></td>
                         <td class='docblock short'>
                              <p>Alt key</p>
-
                         </td>
                     </tr>
                 
@@ -154,7 +161,6 @@ much higher resolution which would result in that the window is very small.</p>
                                title='minifb::MENU_KEY_COMMAND'>MENU_KEY_COMMAND</a></td>
                         <td class='docblock short'>
                              <p>Command key on Mac OS</p>
-
                         </td>
                     </tr>
                 
@@ -163,7 +169,6 @@ much higher resolution which would result in that the window is very small.</p>
                                title='minifb::MENU_KEY_CTRL'>MENU_KEY_CTRL</a></td>
                         <td class='docblock short'>
                              <p>Control key</p>
-
                         </td>
                     </tr>
                 
@@ -172,7 +177,6 @@ much higher resolution which would result in that the window is very small.</p>
                                title='minifb::MENU_KEY_SHIFT'>MENU_KEY_SHIFT</a></td>
                         <td class='docblock short'>
                              <p>Shift key</p>
-
                         </td>
                     </tr>
                 
@@ -181,16 +185,16 @@ much higher resolution which would result in that the window is very small.</p>
                                title='minifb::MENU_KEY_WIN'>MENU_KEY_WIN</a></td>
                         <td class='docblock short'>
                              <p>Windows key on Windows</p>
-
                         </td>
                     </tr>
-                </table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+                </table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
                     <tr class=' module-item'>
-                        <td><a class='type' href='type.Result.html'
-                               title='minifb::Result'>Result</a></td>
+                        <td><a class='trait' href='trait.InputCallback.html'
+                               title='minifb::InputCallback'>InputCallback</a></td>
                         <td class='docblock short'>
-                             
+                             <p>This trait can be implemented and set with <code>set_input_callback</code> to reieve a callback
+whene there is inputs incoming. Currently only support unicode chars.</p>
                         </td>
                     </tr>
                 </table></section>
@@ -236,7 +240,7 @@ much higher resolution which would result in that the window is very small.</p>
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>

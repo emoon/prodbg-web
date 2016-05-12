@@ -46,7 +46,7 @@
             <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                 [<span class='inner'>&#x2212;</span>]
             </a>
-        </span><a id='src-4' class='srclink' href='../src/minifb/lib.rs.html#5-22' title='goto source code'>[src]</a></span></h1>
+        </span><a id='src-6' class='srclink' href='../src/minifb/src/lib.rs.html#13-30' title='goto source code'>[src]</a></span></h1>
 <pre class='rust enum'>pub enum Scale {
     FitScreen,
     X1,
@@ -59,17 +59,17 @@
 function. This is useful if you for example want to display a 320 x 256 window on a screen with
 much higher resolution which would result in that the window is very small.</p>
 </div><h2 class='variants'>Variants</h2>
-<table><tr><td id='variant.FitScreen'><code>FitScreen</code></td><td><div class='docblock'><p>This mode checks your current screen resolution and will caluclate the largest window size
+<table class='variants_table'><tr><td id='variant.FitScreen'><code>FitScreen</code></td><td><div class='docblock'><p>This mode checks your current screen resolution and will caluclate the largest window size
 that can be used within that limit and resize it. Useful if you have a small buffer to
 display on a high resolution screen.</p>
-</div></td></tr><tr><td id='variant.X1'><code>X1</code></td><td><div class='docblock'><p>1X scale (which means leave the corrdinates sent into Window::new untouched)</p>
-</div></td></tr><tr><td id='variant.X2'><code>X2</code></td><td><div class='docblock'><p>2X window scale (Example: 320 x 200 -&gt; 640 x 400)</p>
-</div></td></tr><tr><td id='variant.X4'><code>X4</code></td><td><div class='docblock'><p>4X window scale (Example: 320 x 200 -&gt; 1280 x 800)</p>
-</div></td></tr><tr><td id='variant.X8'><code>X8</code></td><td><div class='docblock'><p>8X window scale (Example: 320 x 200 -&gt; 2560 x 1600)</p>
-</div></td></tr><tr><td id='variant.X16'><code>X16</code></td><td><div class='docblock'><p>16X window scale (Example: 320 x 200 -&gt; 5120 x 3200)</p>
-</div></td></tr><tr><td id='variant.X32'><code>X32</code></td><td><div class='docblock'><p>32 window scale (Example: 320 x 200 -&gt; 10240 x 6400)</p>
-</div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../minifb/enum.Scale.html' title='minifb::Scale'>Scale</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../minifb/enum.Scale.html' title='minifb::Scale'>Scale</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../minifb/enum.Scale.html' title='minifb::Scale'>Scale</a></code></h4>
-<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div></td><td></td></tr><tr><td id='variant.X1'><code>X1</code></td><td><div class='docblock'><p>1X scale (which means leave the corrdinates sent into Window::new untouched)</p>
+</div></td><td></td></tr><tr><td id='variant.X2'><code>X2</code></td><td><div class='docblock'><p>2X window scale (Example: 320 x 200 -&gt; 640 x 400)</p>
+</div></td><td></td></tr><tr><td id='variant.X4'><code>X4</code></td><td><div class='docblock'><p>4X window scale (Example: 320 x 200 -&gt; 1280 x 800)</p>
+</div></td><td></td></tr><tr><td id='variant.X8'><code>X8</code></td><td><div class='docblock'><p>8X window scale (Example: 320 x 200 -&gt; 2560 x 1600)</p>
+</div></td><td></td></tr><tr><td id='variant.X16'><code>X16</code></td><td><div class='docblock'><p>16X window scale (Example: 320 x 200 -&gt; 5120 x 3200)</p>
+</div></td><td></td></tr><tr><td id='variant.X32'><code>X32</code></td><td><div class='docblock'><p>32 window scale (Example: 320 x 200 -&gt; 10240 x 6400)</p>
+</div></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../minifb/enum.Scale.html' title='minifb::Scale'>Scale</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../minifb/enum.Scale.html' title='minifb::Scale'>Scale</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../minifb/enum.Scale.html' title='minifb::Scale'>Scale</a></code></h4>
+<h4 id='method.clone_from' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
@@ -113,7 +113,7 @@ display on a high resolution screen.</p>
 
                 <p>
                     Search functions by type signature (e.g.
-                    <code>vec -> usize</code>)
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
                 </p>
             </div>
         </div>
