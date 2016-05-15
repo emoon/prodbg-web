@@ -13,7 +13,7 @@ This whole FS-UAE backend is also implemented in as a plugin for ProDBG using th
 
 The main part of the move over to Rust has been completed also. There are still some things to move over which is lacking but nothing major. Also there will still be bunch of external/3rd party code written in C/C++ (like [Scintilla](http://www.scintilla.org), [bgfx](https://github.com/bkaradzic/bgfx), [dear imgui](https://github.com/ocornut/imgui), etc) as it wouldn't make any sense to port them over for the sake of porting.
 
-Still ProDBG is far from being really usable as I have taken a bunch of shortcuts just to get things up and running. The most important parts though which is the API and how plugins talk to each-other there now shortcuts has been taken so I really hope to have some basic native debugging running soon as things are really starting to move again which is great!
+Still ProDBG is far from being really usable as I have taken a bunch of shortcuts just to get things up and running. The most important parts though which is the API and how plugins talk to each-other there no shortcuts has been taken so I really hope to have some basic native debugging running soon as things are really starting to move again which is great!
 
 Something that I get asked now and then "What if company X releases debugger Y that is better than ProDBG. What happens then?" If there would be a debugger released which fits my needs *exactly* (Free, open source, has Rust support, native, etc) I **may** consider switching but to me it seems very unlikely to happen to fit everything I want. In the end I mostly do this project because I think it's fun and it's mostly for my own benefit and if people find it useful I'm all happy for that!
 
