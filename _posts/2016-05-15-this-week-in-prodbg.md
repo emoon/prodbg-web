@@ -5,7 +5,7 @@ title: This wee.. err.. months in ProDBG!
 
 I have seriously been really bad at updating this place but I **really** hope to improve on going forward. So what has happed since last time? A lot in fact.
 
-![]({{ site.url }}/images/prodbg_uae_2015_05_15.png)
+![]({{ site.url }}/images/prodbg_uae_2015-05-15.png)
 
 The is the status of today. It's now possible to have ProDBG (the Rust version) debugging some very basic things. Here it's connected with my fork of [FS-UAE](https://fs-uae.net) where I'm working on adding support for Remote debugging. The way this works is that I have a small server running in FS-UAE which is based on the [GDB serial protocol](https://sourceware.org/gdb/onlinedocs/gdb/Remote-Protocol.html)
 
