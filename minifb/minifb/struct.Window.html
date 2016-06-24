@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
+    
 
     
     
@@ -43,13 +44,14 @@
 
     <section id='main' class="content struct">
 <h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>minifb</a>::<wbr><a class='struct' href=''>Window</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                [<span class='inner'>&#x2212;</span>]
-            </a>
-        </span><a id='src-670' class='srclink' href='../src/minifb/src/lib.rs.html#112' title='goto source code'>[src]</a></span></h1>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-709' class='srclink' href='../src/minifb/src/lib.rs.html#129' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Window(_);</pre><div class='docblock'><p>Window is used to open up a window. It&#39;s possible to optionally display a 32-bit buffer when
 the widow is set as non-resizable.</p>
-</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../minifb/struct.Window.html' title='minifb::Window'>Window</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, width: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, height: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, opts: <a class='struct' href='../minifb/struct.WindowOptions.html' title='minifb::WindowOptions'>WindowOptions</a>) -&gt; Result&lt;<a class='struct' href='../minifb/struct.Window.html' title='minifb::Window'>Window</a>&gt;</code></h4>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../minifb/struct.Window.html' title='minifb::Window'>Window</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-717' class='srclink' href='../src/minifb/src/lib.rs.html#146-539' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, width: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, height: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, opts: <a class='struct' href='../minifb/struct.WindowOptions.html' title='minifb::WindowOptions'>WindowOptions</a>) -&gt; Result&lt;<a class='struct' href='../minifb/struct.Window.html' title='minifb::Window'>Window</a>&gt;</code></h4>
 <div class='docblock'><p>Opens up a new window</p>
 
 <p># Examples</p>
@@ -70,7 +72,7 @@ the widow is set as non-resizable.</p>
 <pre class='rust rust-example-rendered'>
  <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>window</span> <span class='op'>=</span> <span class='kw'>match</span> <span class='ident'>Window</span>::<span class='ident'>new</span>(<span class='string'>&quot;Test&quot;</span>, <span class='number'>640</span>, <span class='number'>400</span>,
                                      <span class='ident'>WindowOptions</span> {
-                                         <span class='ident'>resize</span>: <span class='boolval'>true</span>,
+                                         <span class='ident'>resize</span>: <span class='bool-val'>true</span>,
                                          ..<span class='ident'>WindowOptions</span>::<span class='ident'>default</span>()
                                      }) {
     <span class='prelude-val'>Ok</span>(<span class='ident'>win</span>) <span class='op'>=&gt;</span> <span class='ident'>win</span>,
@@ -79,6 +81,14 @@ the widow is set as non-resizable.</p>
         <span class='kw'>return</span>;
     }
 };</pre>
+</div><h4 id='method.set_title' class='method'><code>fn <a href='#method.set_title' class='fnname'>set_title</a>(&amp;mut self, title: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>)</code></h4>
+<div class='docblock'><p>Allows you to set a new title of the window after creation</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>window</span> <span class='op'>=</span> <span class='kw'>match</span> <span class='ident'>Window</span>::<span class='ident'>new</span>(<span class='string'>&quot;Test&quot;</span>, <span class='number'>640</span>, <span class='number'>400</span>, <span class='ident'>WindowOptions</span>::<span class='ident'>default</span>()).<span class='ident'>unwrap</span>();
+
+<span class='ident'>window</span>.<span class='ident'>set_title</span>(<span class='string'>&quot;My New Title!&quot;</span>);</pre>
 </div><h4 id='method.get_window_handle' class='method'><code>fn <a href='#method.get_window_handle' class='fnname'>get_window_handle</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='enum' href='https://doc.rust-lang.org/nightly/std/os/raw/enum.c_void.html' title='std::os::raw::c_void'>c_void</a></code></h4>
 <div class='docblock'><p>Returns the native handle for a window which is an opaque pointer/handle which
 dependens on the current operating system:</p>
@@ -91,7 +101,7 @@ dependens on the current operating system:</p>
 <div class='docblock'><p>Updates the window with a 32-bit pixel buffer. Notice that the buffer needs to be at least
 the size of the created window</p>
 
-<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<h1 id='examples-1' class='section-header'><a href='#examples-1'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buffer</span>: <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u32</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='macro'>vec</span><span class='macro'>!</span>[<span class='number'>0</span>; <span class='number'>640</span> <span class='op'>*</span> <span class='number'>400</span>];
 
@@ -101,7 +111,7 @@ the size of the created window</p>
 </div><h4 id='method.update' class='method'><code>fn <a href='#method.update' class='fnname'>update</a>(&amp;mut self)</code></h4>
 <div class='docblock'><p>Updates the window (this is required to call in order to get keyboard/mouse input, etc)</p>
 
-<h1 id='examples-1' class='section-header'><a href='#examples-1'>Examples</a></h1>
+<h1 id='examples-2' class='section-header'><a href='#examples-2'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buffer</span>: <span class='ident'>Vec</span><span class='op'>&lt;</span><span class='ident'>u32</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='macro'>vec</span><span class='macro'>!</span>[<span class='number'>0</span>; <span class='number'>640</span> <span class='op'>*</span> <span class='number'>400</span>];
 
@@ -113,7 +123,7 @@ the size of the created window</p>
 pressing the close button on the window) It&#39;s up to the user to make sure that this is
 being checked and take action depending on the state.</p>
 
-<h1 id='examples-2' class='section-header'><a href='#examples-2'>Examples</a></h1>
+<h1 id='examples-3' class='section-header'><a href='#examples-3'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='kw'>while</span> <span class='ident'>window</span>.<span class='ident'>is_open</span>() {
     <span class='ident'>window</span>.<span class='ident'>update</span>(...)
@@ -122,14 +132,14 @@ being checked and take action depending on the state.</p>
 <div class='docblock'><p>Sets the position of the window. This is useful if you have
 more than one window and want to align them up on the screen</p>
 
-<h1 id='examples-3' class='section-header'><a href='#examples-3'>Examples</a></h1>
+<h1 id='examples-4' class='section-header'><a href='#examples-4'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='comment'>// Moves the window to pixel position 20, 20 on the screen</span>
 <span class='ident'>window</span>.<span class='ident'>set_position</span>(<span class='number'>20</span>, <span class='number'>20</span>);</pre>
 </div><h4 id='method.get_size' class='method'><code>fn <a href='#method.get_size' class='fnname'>get_size</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a></code></h4>
 <div class='docblock'><p>Returns the current size of the window</p>
 
-<h1 id='examples-4' class='section-header'><a href='#examples-4'>Examples</a></h1>
+<h1 id='examples-5' class='section-header'><a href='#examples-5'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='kw'>let</span> <span class='ident'>size</span> <span class='op'>=</span> <span class='ident'>window</span>.<span class='ident'>get_size</span>();
 <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;width {} height {}&quot;</span>, <span class='ident'>size</span>.<span class='number'>0</span>, <span class='ident'>size</span>.<span class='number'>1</span>);</pre>
@@ -137,7 +147,7 @@ more than one window and want to align them up on the screen</p>
 <div class='docblock'><p>Get the current position of the mouse relative to the current window
 The coordinate system is as 0, 0 as the upper left corner</p>
 
-<h1 id='examples-5' class='section-header'><a href='#examples-5'>Examples</a></h1>
+<h1 id='examples-6' class='section-header'><a href='#examples-6'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='ident'>window</span>.<span class='ident'>get_mouse_pos</span>(<span class='ident'>MouseMode</span>::<span class='ident'>Clamp</span>).<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>mouse</span><span class='op'>|</span> {
     <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;x {} y {}&quot;</span>, <span class='ident'>mouse</span>.<span class='number'>0</span>, <span class='ident'>mouse</span>.<span class='number'>1</span>);
@@ -145,7 +155,7 @@ The coordinate system is as 0, 0 as the upper left corner</p>
 </div><h4 id='method.get_mouse_down' class='method'><code>fn <a href='#method.get_mouse_down' class='fnname'>get_mouse_down</a>(&amp;self, button: <a class='enum' href='../minifb/enum.MouseButton.html' title='minifb::MouseButton'>MouseButton</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
 <div class='docblock'><p>Check if a mouse button is down or not</p>
 
-<h1 id='examples-6' class='section-header'><a href='#examples-6'>Examples</a></h1>
+<h1 id='examples-7' class='section-header'><a href='#examples-7'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='kw'>let</span> <span class='ident'>left_down</span> <span class='op'>=</span> <span class='ident'>window</span>.<span class='ident'>get_mouse_down</span>(<span class='ident'>MouseButton</span>::<span class='ident'>Left</span>);
 <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;is left down? {}&quot;</span>, <span class='ident'>left_down</span>)</pre>
@@ -156,15 +166,22 @@ For example on Mac with trackpad &quot;scroll wheel&quot; means two finger
 swiping up/down (y axis) and to the sides (x-axis)
 When using a mouse this assumes the scroll wheel which often is only y direction.</p>
 
-<h1 id='examples-7' class='section-header'><a href='#examples-7'>Examples</a></h1>
+<h1 id='examples-8' class='section-header'><a href='#examples-8'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='ident'>window</span>.<span class='ident'>get_scroll_wheel</span>().<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>scroll</span><span class='op'>|</span> {
     <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;scrolling - x {} y {}&quot;</span>, <span class='ident'>scroll</span>.<span class='number'>0</span>, <span class='ident'>scroll</span>.<span class='number'>1</span>);
 });</pre>
+</div><h4 id='method.set_cursor_style' class='method'><code>fn <a href='#method.set_cursor_style' class='fnname'>set_cursor_style</a>(&amp;mut self, cursor: <a class='enum' href='../minifb/enum.CursorStyle.html' title='minifb::CursorStyle'>CursorStyle</a>)</code></h4>
+<div class='docblock'><p>Set a diffrent cursor style. This can be used if you have resizing
+elements or something like that</p>
+
+<h1 id='examples-9' class='section-header'><a href='#examples-9'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='ident'>window</span>.<span class='ident'>set_cursor_style</span>(<span class='ident'>CursorStyle</span>::<span class='ident'>ResizeLeftRight</span>);</pre>
 </div><h4 id='method.get_keys' class='method'><code>fn <a href='#method.get_keys' class='fnname'>get_keys</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;Key&gt;&gt;</code></h4>
 <div class='docblock'><p>Get the current keys that are down.</p>
 
-<h1 id='examples-8' class='section-header'><a href='#examples-8'>Examples</a></h1>
+<h1 id='examples-10' class='section-header'><a href='#examples-10'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='ident'>window</span>.<span class='ident'>get_keys</span>().<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>keys</span><span class='op'>|</span> {
     <span class='kw'>for</span> <span class='ident'>t</span> <span class='kw'>in</span> <span class='ident'>keys</span> {
@@ -179,7 +196,7 @@ When using a mouse this assumes the scroll wheel which often is only y direction
 <div class='docblock'><p>Get the current pressed keys. Repeat can be used to control if keys should
 be repeated if down or not.</p>
 
-<h1 id='examples-9' class='section-header'><a href='#examples-9'>Examples</a></h1>
+<h1 id='examples-11' class='section-header'><a href='#examples-11'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='ident'>window</span>.<span class='ident'>get_keys_pressed</span>(<span class='ident'>KeyRepeat</span>::<span class='ident'>No</span>).<span class='ident'>map</span>(<span class='op'>|</span><span class='ident'>keys</span><span class='op'>|</span> {
     <span class='kw'>for</span> <span class='ident'>t</span> <span class='kw'>in</span> <span class='ident'>keys</span> {
@@ -193,7 +210,7 @@ be repeated if down or not.</p>
 </div><h4 id='method.is_key_down' class='method'><code>fn <a href='#method.is_key_down' class='fnname'>is_key_down</a>(&amp;self, key: Key) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
 <div class='docblock'><p>Check if a single key is down.</p>
 
-<h1 id='examples-10' class='section-header'><a href='#examples-10'>Examples</a></h1>
+<h1 id='examples-12' class='section-header'><a href='#examples-12'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='kw'>if</span> <span class='ident'>window</span>.<span class='ident'>is_key_down</span>(<span class='ident'>Key</span>::<span class='ident'>A</span>) {
     <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;Key A is down&quot;</span>);
@@ -202,7 +219,7 @@ be repeated if down or not.</p>
 <div class='docblock'><p>Check if a single key is pressed. KeyRepeat will control if the key should be repeated or
 not while being pressed.</p>
 
-<h1 id='examples-11' class='section-header'><a href='#examples-11'>Examples</a></h1>
+<h1 id='examples-13' class='section-header'><a href='#examples-13'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='kw'>if</span> <span class='ident'>window</span>.<span class='ident'>is_key_pressed</span>(<span class='ident'>KeyRepeat</span>::<span class='ident'>No</span>) {
     <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;Key A is down&quot;</span>);
@@ -211,14 +228,14 @@ not while being pressed.</p>
 <div class='docblock'><p>Sets the delay for when a key is being held before it starts being repeated the default
 value is 0.25 sec</p>
 
-<h1 id='examples-12' class='section-header'><a href='#examples-12'>Examples</a></h1>
+<h1 id='examples-14' class='section-header'><a href='#examples-14'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='ident'>window</span>.<span class='ident'>set_key_repeat_delay</span>(<span class='number'>0.5</span>) <span class='comment'>// 0.5 sec before repeat starts</span></pre>
 </div><h4 id='method.set_key_repeat_rate' class='method'><code>fn <a href='#method.set_key_repeat_rate' class='fnname'>set_key_repeat_rate</a>(&amp;mut self, rate: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>)</code></h4>
 <div class='docblock'><p>Sets the rate in between when the keys has passed the initial repeat_delay. The default
 value is 0.05 sec</p>
 
-<h1 id='examples-13' class='section-header'><a href='#examples-13'>Examples</a></h1>
+<h1 id='examples-15' class='section-header'><a href='#examples-15'>Examples</a></h1>
 <pre class='rust rust-example-rendered'>
 <span class='ident'>window</span>.<span class='ident'>set_key_repeat_rate</span>(<span class='number'>0.01</span>) <span class='comment'>// 0.01 sec between keys</span></pre>
 </div><h4 id='method.is_active' class='method'><code>fn <a href='#method.is_active' class='fnname'>is_active</a>(&amp;mut self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
@@ -268,6 +285,8 @@ otherwise <code>None</code></p>
                     <dd>Move down in search results</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
