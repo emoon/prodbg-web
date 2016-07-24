@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["SampleFlags","Sample flags to decide how profiling info should be handled"]],"mod":[["error",""]],"struct":[["Remotery","Holds the main instance for Remotery"],["RemoteryScope","Scopes allows you to profile a bit of code and the end_cpu_sample will be called once it goes out of scope"]]});

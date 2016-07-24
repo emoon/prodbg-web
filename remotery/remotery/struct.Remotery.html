@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Remotery` struct in crate `remotery`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Remotery">
+
+    <title>remotery::Remotery - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>remotery</a></p><script>window.sidebarCurrent = {name: 'Remotery', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>remotery</a>::<wbr><a class='struct' href=''>Remotery</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-465' class='srclink' href='../src/remotery/src/lib.rs.html#14-16' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Remotery {
+    // some fields omitted
+}</pre><div class='docblock'><p>Holds the main instance for Remotery</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../remotery/struct.Remotery.html' title='remotery::Remotery'>Remotery</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-474' class='srclink' href='../src/remotery/src/lib.rs.html#27-106' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.create_global_instance' class='method'><code>fn <a href='#method.create_global_instance' class='fnname'>create_global_instance</a>() -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../remotery/struct.Remotery.html' title='remotery::Remotery'>Remotery</a>, <a class='enum' href='../remotery/error/enum.RemoteryError.html' title='remotery::error::RemoteryError'>RemoteryError</a>&gt;</code></h4>
+<div class='docblock'><p>Creates the global instance (with in the C lib that this code wraps) this code needs to be
+called before any of the other code is being called and the instance will be dropped when
+it goes out of scope so it&#39;s suggested to call this early in the main entry point of your
+program (such as <code>main</code>)</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>let</span> <span class='ident'>_remotery</span> <span class='op'>=</span> <span class='ident'>Remotery</span>::<span class='ident'>create_global_instance</span>().<span class='ident'>unwrap_or_else</span>(<span class='op'>|</span><span class='ident'>e</span><span class='op'>|</span> {
+    <span class='macro'>panic</span><span class='macro'>!</span>(<span class='ident'>e</span>);
+});</pre>
+</div><h4 id='method.begin_cpu_sample' class='method'><code>fn <a href='#method.begin_cpu_sample' class='fnname'>begin_cpu_sample</a>(name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, flags: <a class='enum' href='../remotery/enum.SampleFlags.html' title='remotery::SampleFlags'>SampleFlags</a>)</code></h4>
+<div class='docblock'><p>Begin a cpu sample. Notice that this call needs to be paired with <code>end_cpu_sample</code>.
+It&#39;s also possible to use <code>RemoteryScope</code> that will call end_cpu_scope when the scop ends.</p>
+
+<h1 id='examples-1' class='section-header'><a href='#examples-1'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='ident'>Remotery</span>::<span class='ident'>begin_cpu_sample</span>(<span class='string'>&quot;my_function&quot;</span>, <span class='ident'>SampleFlags</span>::<span class='ident'>Default</span>);
+<span class='comment'>// some code to profile here</span>
+<span class='ident'>Remotery</span>::<span class='ident'>end_cpu_sample</span>();</pre>
+</div><h4 id='method.end_cpu_sample' class='method'><code>fn <a href='#method.end_cpu_sample' class='fnname'>end_cpu_sample</a>()</code></h4>
+<div class='docblock'><p>Ends a cpu sample. Notice that this needs to be paired with <code>begin_cpu_sample</code> as seen above.</p>
+</div><h4 id='method.set_current_thread_name' class='method'><code>fn <a href='#method.set_current_thread_name' class='fnname'>set_current_thread_name</a>(name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>)</code></h4>
+<div class='docblock'><p>Setts the name of the current thread that makes it easier to identify it in the Remotery UI</p>
+
+<h1 id='examples-2' class='section-header'><a href='#examples-2'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='ident'>Remotery</span>::<span class='ident'>set_current_thread_name</span>(<span class='string'>&quot;my_thread_name&quot;</span>);</pre>
+</div><h4 id='method.log_text' class='method'><code>fn <a href='#method.log_text' class='fnname'>log_text</a>(text: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>)</code></h4>
+<div class='docblock'><p>Can be used to log text to the remotery ui</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../remotery/struct.Remotery.html' title='remotery::Remotery'>Remotery</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-498' class='srclink' href='../src/remotery/src/lib.rs.html#132-142' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.drop' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#tymethod.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>A method called when the value goes out of scope. <a href="https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#tymethod.drop">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "remotery";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
