@@ -48,7 +48,7 @@ url: prodbg.com
 #
 
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 permalink: /:title/
 
 kramdown:
