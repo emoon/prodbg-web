@@ -5,7 +5,9 @@ title: Rethinking UI
 
 ### TL;DR
 
-Thinking about switching to Qt, unsure how to deal with plugins. Please comment on https://github.com/emoon/ProDBG/issues/329 
+Thinking about switching to Qt, unsure how to deal with plugins. Please comment on it [here](https://github.com/emoon/ProDBG/issues/327)
+
+
 
 ### Long version
 
@@ -60,4 +62,4 @@ My biggest concern is performance and how fine-grained the communication can be.
 
 Given that communication will 99% of the time be done on a local machine I would assume this is fairly fast but I just wonder if it will be fast enough. Host can certainly be multi-threaded and have a thread for each plugin connection. Still this is a concern if lots of small calls are being done from the plugins to the host.
 
-I'm extremely torn on which approach to go with here. Having plugins linking directly with Qt would suck. I much prefer an approach where that wouldn't be needed. If you have any suggestions around this please comment here https://github.com/emoon/ProDBG/issues/327 (you can also contact me on twitter but I prefer to use the GitHub issue as one place to have the discussion)
+I'm extremely torn on which approach to go with here. Having plugins linking directly with Qt would suck. I much prefer an approach where that wouldn't be needed. If you have any suggestions around this please comment [here](https://github.com/emoon/ProDBG/issues/327) (you can also contact me on twitter but I prefer to use the GitHub issue as one place to have the discussion)
